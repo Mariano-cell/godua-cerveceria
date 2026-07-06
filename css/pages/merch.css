@@ -1,0 +1,163 @@
+/* ============================================
+   MERCH (merch.html) — estilos por sección
+   Página breve a propósito (sin señal de crecimiento).
+   Mobile-first · breakpoints 640px / 1024px.
+   Prefijo .merch- para no colisionar con otras páginas.
+   ============================================ */
+
+/* ---------- Utilidades de la página ---------- */
+.merch-note {
+  font-size: var(--fs-caption);
+  color: var(--color-text-muted);
+  margin: var(--spacing-lg) 0 0;
+}
+.merch-ph {
+  color: var(--color-text-muted);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ============================================
+   1 · HERO
+   ============================================ */
+.merch-hero {
+  padding: var(--spacing-xxl) 0 var(--spacing-xl);
+}
+.merch-hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+}
+.merch-hero__kicker {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--spacing-sm);
+}
+.merch-hero__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: var(--fs-h1);
+  line-height: 1.02;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-md);
+}
+.merch-hero__subtitle {
+  font-size: var(--fs-body);
+  color: var(--color-text-soft);
+  margin: 0;
+  max-width: 42ch;
+}
+/* Ilustración del hero (gato, ya mira hacia el texto) */
+.merch-hero__illus {
+  flex-shrink: 0;
+  width: 120px;
+  height: auto;
+}
+@media (min-width: 1024px) {
+  .merch-hero__illus { width: 200px; }
+}
+
+/* ============================================
+   2 · PRODUCTOS — grilla con foto protagonista
+   ============================================ */
+.merch-products {
+  padding: 0 0 var(--spacing-xxl);
+}
+.merch-grid {
+  display: grid;
+  grid-template-columns: 1fr;   /* un item por renglón en mobile */
+  gap: var(--spacing-md);
+}
+.merch-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+/* Foto protagonista (placeholder .illus-box hasta tener fotos) */
+.merch-card__photo {
+  height: 150px;
+  border: none;               /* .illus-box trae borde punteado; acá lo maneja la card */
+  border-bottom: 1.5px dashed #b8b5ac;
+  border-radius: 0;
+  background-color: #efece5;
+  font-size: var(--fs-caption);
+}
+.merch-card__info {
+  padding: var(--spacing-md);
+}
+.merch-card__name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h3);
+  line-height: 1.1;
+  color: var(--color-text);
+  margin: 0;
+}
+.merch-card__meta {
+  font-size: var(--fs-caption);
+  color: var(--color-text-muted);
+  margin: 2px 0 var(--spacing-sm);
+}
+.merch-card__price {
+  font-weight: 700;
+  font-size: var(--fs-body);
+  color: var(--color-text);
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .merch-card__photo { height: 190px; }
+}
+@media (min-width: 640px) {
+  .merch-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .merch-card__photo { height: 220px; }
+  .merch-card__info { padding: var(--spacing-lg); }
+}
+
+/* ============================================
+   3 · CTA CIERRE — bloque oliva
+   ============================================ */
+.merch-cta {
+  padding: var(--spacing-xxl) 0;
+  color: #ffffff;
+}
+.merch-cta--olive { background-color: var(--color-olive); }
+.merch-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* título y texto a la izquierda (criterio de barriles) */
+  text-align: left;
+}
+.merch-cta__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  line-height: 1.02;
+  color: #ffffff;      /* sobre bloque oliva sólido */
+  margin: 0 0 var(--spacing-sm);
+}
+.merch-cta__text {
+  font-size: var(--fs-body);
+  opacity: 0.88;
+  margin: 0 0 var(--spacing-lg);
+  max-width: 46ch;
+}
+
+/* Fila: ilustración (izq) + botón (der) */
+.merch-cta__row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+.merch-cta__illus {
+  flex-shrink: 0;
+  width: 90px;
+  height: auto;
+}
+@media (min-width: 1024px) {
+  .merch-cta__illus { width: 130px; }
+}

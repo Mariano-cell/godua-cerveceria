@@ -1,0 +1,629 @@
+/* ============================================
+   HOME (index.html) — estilos por sección
+   Basado en el wireframe. Mobile-first · 1024px.
+   Prefijo .home- para no colisionar con componentes.
+   ============================================ */
+
+/* ============================================
+   0 · LOGO PRINCIPAL — banner a todo el ancho del viewport
+   El logo es cuadrado: al ocupar el 100% del ancho, su alto
+   crece en proporción (más alto en desktop, más chico en mobile).
+   ============================================ */
+.home-logo-banner {
+  padding-top: 1rem;
+  width: 100%;
+}
+.home-logo-banner img {
+  display: block;
+  width: 100%;        /* ocupa todo el ancho del viewport */
+  height: auto;       /* alto proporcional (cuadrado) */
+}
+
+/* Contenedor de ancho del sitio, con el margen estándar */
+.home-wrap {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--margen-A-mobile);
+}
+@media (min-width: 1024px) {
+  .home-wrap { padding: 0 var(--margen-A-desktop); }
+}
+
+/* ============================================
+   1 · HERO
+   ============================================ */
+.home-hero {
+  padding: 0 0 var(--spacing-xxxl);
+}
+
+.home-hero__inner {
+  display: flex;
+  flex-direction: column;           /* todo apilado */
+  gap: 0.5rem;
+}
+
+/* Título */
+.home-hero__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: var(--fs-h1);
+  line-height: 1.02;
+  color: var(--color-text);         /* título siempre oscuro sobre fondo claro */
+  margin: 0;
+}
+
+/* Subtítulo: alineado a la izquierda */
+.home-hero__subtitle {
+  font-size: var(--fs-body);
+  color: var(--color-text-soft);
+  margin: 0;
+  text-align: left;
+}
+
+/* Fila inferior: 2 columnas.
+   Izq: subtítulo (arriba) + botón (abajo).
+   Der: ilustración centrada en el eje Y. */
+.home-hero__bottom {
+  display: flex;
+  align-items: center;              /* centra la ilustración verticalmente */
+  justify-content: space-between;
+  gap: 0;                           /* sin gap: el espacio lo toma la col izq */
+  /* margin-top: var(--spacing-md); */
+}
+
+/* Columna izquierda: subtítulo arriba, botón abajo */
+.home-hero__col {
+  flex: 1;                          /* se lleva el espacio libre */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;          /* botón alineado a la izquierda */
+  gap: var(--spacing-lg);
+}
+
+/* Ilustración del reptil (espejada en el eje X) */
+.home-hero__illus {
+  flex-shrink: 0;
+  width: 160px;
+  height: auto;                     /* respeta la proporción del PNG */
+  transform: scaleX(-1);            /* espejado horizontal */
+}
+
+/* Desktop: más aire y la ilustración más grande */
+@media (min-width: 1024px) {
+  .home-hero__illus {
+    width: clamp(180px, 14vw, 260px); /* mas chico que antes */
+  }
+  /* Título más protagonista en el hero a pantalla completa */
+  .home-hero__title {
+    font-size: clamp(44px, 4.2vw, 68px);
+  }
+
+  /* Reptil pegado al texto: la columna deja de estirarse
+     (flex: 1 empujaba al reptil hasta el borde derecho) */
+  .home-hero__col {
+    flex: 0 1 auto;
+  }
+  .home-hero__bottom {
+    justify-content: flex-start;
+    gap: var(--spacing-xxl);
+  }
+}
+
+/* ============================================
+   DESKTOP · Zona superior en 2 columnas:
+   logo (izq) + contenido del hero (der).
+   Todo dentro del media query: mobile intacto.
+   ============================================ */
+@media (min-width: 1024px) {
+  .home-top {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 44%); /* hero izq / logo der */
+    align-items: center;
+    gap: var(--spacing-xxl);
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--margen-A-desktop);
+    /* Ocupa toda la pantalla menos el navbar (sticky, 80px) */
+    min-height: calc(100vh - var(--navbar-height));
+  }
+
+  /* El logo deja de ser banner full-width: llena su columna.
+     order: lo mandamos a la DERECHA sin tocar el HTML
+     (asi mobile conserva su orden original: logo arriba). */
+  .home-top .home-logo-banner {
+    padding-top: 0;
+    order: 2;
+  }
+  .home-top .home-hero {
+    order: 1;
+  }
+
+  /* El hero pierde su padding propio (lo maneja .home-top) */
+  .home-top .home-hero {
+    padding: 0;
+  }
+  .home-top .home-hero .home-wrap {
+    padding: 0;
+    max-width: none;
+  }
+}
+
+/* ============================================
+   2 · DESTACADO — bloque oliva, grilla 2x2
+   Texto claro: excepción de contraste (sobre color sólido).
+   ============================================ */
+.home-band {
+  padding: var(--spacing-xxl) 0;
+  color: #ffffff;
+}
+.home-band--olive { background-color: var(--color-olive); }
+
+/* Header de la sección: ilustración (izq) + título (der) */
+.home-band__head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin-bottom: 1rem;
+}
+
+
+/* Kicker "QUÉ OFRECEMOS": tipografía original (Barlow chico, sobre oliva) */
+.home-band__kicker {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  opacity: 0.85;
+  margin: 0 0 var(--spacing-md);
+}
+.home-band__illus {
+  flex-shrink: 0;
+  height: 140px;         /* fijo el alto: mismo tamaño visual que antes del recorte */
+  width: auto;           /* el ancho se ajusta a la nueva proporción */
+}
+.home-band__heading {
+  margin-right: auto;      /* el espacio libre queda a la derecha */
+  display: flex;
+  flex-direction: column;  /* kicker arriba, título abajo */
+  text-align: left;
+}
+
+.home-band__eyebrow {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+  margin: 0 0 var(--spacing-md);
+}
+
+/* Título de sección: Playfair (propuesta tipográfica del proyecto).
+   Sobre el bloque oliva va en blanco. */
+.home-band__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  line-height: 1.05;
+  color: #ffffff;
+  margin: 0;
+}
+
+.home-cats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);   /* 2x2 en mobile */
+  gap: var(--spacing-md);
+}
+
+.home-cat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   /* texto izq, flecha der */
+  gap: var(--spacing-sm);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  line-height: 1.2;
+}
+.home-cat__sub {
+  display: block;
+  margin-top: 2px;
+  font-weight: 400;
+  color: var(--color-text-soft);
+  font-size: var(--fs-small);
+  line-height: 1.2;
+}
+
+/* Ícono + texto en fila dentro de cada tarjeta */
+.home-cat__body {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;   /* permite que el texto se ajuste sin desbordar */
+}
+.home-cat__icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  color: var(--color-olive);
+}
+.home-cat__arrow {
+  font-size: 22px;
+  line-height: 1;
+  color: var(--color-olive);
+  flex-shrink: 0;
+}
+
+/* Tarjetas clickeables: color heredado (blanco) + hover con más brillo */
+.home-cat {
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.home-cat:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.home-cat:hover .home-cat__arrow {
+  opacity: 1;
+}
+
+/* Desktop: las 4 categorías en una sola fila */
+@media (min-width: 1024px) {
+  .home-cats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ============================================
+   3 · PARA QUIÉNES — "¿Qué estás buscando?"
+   Fondo claro. 3 cards con borde oscuro.
+   ============================================ */
+.home-seek {
+  padding: var(--spacing-xxxl) 0;
+}
+
+.home-seek__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-xs);
+}
+.home-seek__lead {
+  color: var(--color-text-soft);
+  margin: 0 0 var(--spacing-xl);
+}
+
+.home-seek__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Card-fila: texto (izq) + flecha (der) */
+/* Fila: botón (70%) + ilustración en el espacio libre (30%) */
+.home-seek__row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.home-seek__card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  flex: 0 0 70%;                  /* el botón ocupa el 70% del ancho */
+  padding: var(--spacing-lg);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1.5px solid var(--color-text);
+  border-radius: var(--radius-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Ilustración FUERA del botón, en el 30% libre. Se centra en ese espacio. */
+.home-seek__illus {
+  flex: 1;                        /* toma el resto de la fila */
+  max-height: 72px;               /* no más alta que el botón (~85px) */
+  width: auto;
+  object-fit: contain;
+  object-position: center;
+}
+.home-seek__card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.home-seek__name {
+  display: block;
+  font-size: var(--fs-body);
+  font-weight: 700;
+  line-height: 1.2;
+}
+.home-seek__sub {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--fs-small);
+  font-weight: 400;
+  color: var(--color-text-soft);
+  line-height: 1.2;
+}
+.home-seek__arrow {
+  font-size: 20px;
+  color: var(--color-text);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.home-seek__card:hover .home-seek__arrow {
+  transform: translateX(3px);
+}
+
+/* Desktop: tope de ancho en la fila completa (botón + ilustración) */
+@media (min-width: 1024px) {
+  .home-seek__row {
+    max-width: 860px;
+  }
+}
+
+/* Fila invertida (solo botón 2): ilustración a la izquierda, botón a la derecha */
+.home-seek__row--reverse {
+  flex-direction: row-reverse;
+}
+
+/* Al pasar el mouse por el botón, la ilustración de esa fila crece 10%.
+   :has() cubre ambos órdenes (ilustración antes o después del botón). */
+.home-seek__illus {
+  transition: transform 0.2s ease;
+}
+.home-seek__row:has(.home-seek__card:hover) .home-seek__illus {
+  transform: scale(1.1);
+}
+
+/* ============================================
+   4 · ÁREA DE COBERTURA — Villa Adelina + mapa
+   Fondo blanco con bordes arriba/abajo.
+   ============================================ */
+.home-coverage {
+  padding: var(--spacing-xxxl) 0;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+.home-coverage__kicker {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--spacing-sm);
+}
+.home-coverage__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-sm);
+}
+.home-coverage__lead {
+  color: var(--color-text-soft);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Fila: texto de envíos (izq) + ilustración OVNI (der) */
+.home-coverage__leadrow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+.home-coverage__illus {
+  flex-shrink: 0;
+  width: 140px;          /* OVNI apaisado, a la derecha del texto */
+  height: auto;
+}
+.home-coverage__map {
+  height: 220px;
+  margin-top: var(--spacing-lg);
+  border: 1.5px solid var(--color-text);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.home-coverage__map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Caja placeholder punteada (mapa/ilustraciones pendientes) */
+.illus-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1.5px dashed #b8b5ac;
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+  padding: var(--spacing-md);
+}
+
+/* Desktop: texto (izq) + mapa (der) en 2 columnas */
+@media (min-width: 1024px) {
+  .home-coverage__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xxl);
+    align-items: center;
+  }
+  .home-coverage__map {
+    height: 100%;
+    min-height: 240px;
+    margin-top: 0;
+  }
+}
+
+/* ============================================
+   5 · TESTIMONIALS — carrusel de reseñas
+   Mobile: scroll horizontal con snap (sin JS).
+   Desktop: las 3 visibles a la vez.
+   ============================================ */
+.home-reviews {
+  padding: var(--spacing-xxxl) 0;
+}
+.home-reviews__kicker {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--spacing-sm);
+}
+.home-reviews__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* Header de reseñas: título (izq) + ilustración (der) */
+.home-reviews__head {
+  display: flex;
+  align-items: center;           /* ilustración (izq) + textos pegados a ella */
+  gap: var(--spacing-lg);
+  margin-bottom: 1rem;
+}
+.home-reviews__heading {
+  text-align: left;              /* textos justificados a la izquierda */
+}
+.home-reviews__illus {
+  flex-shrink: 0;
+  height: 144px;          /* a la derecha del título */
+  width: auto;
+}
+
+.home-reviews__track {
+  --fade-left: 0px;                  /* ancho del fade izquierdo (animable) */
+  display: flex;
+  gap: var(--spacing-md);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;   /* snap obligatorio: clava cada review */
+  padding-bottom: var(--spacing-sm);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;              /* oculta la barra (Firefox) */
+  transition: --fade-left 0.3s ease;  /* salida suave del fade izquierdo */
+  /* Fade DERECHO siempre visible; el IZQUIERDO depende de --fade-left. */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-left), #000 calc(100% - 24px), transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-left), #000 calc(100% - 24px), transparent 100%);
+}
+.home-reviews__track::-webkit-scrollbar { display: none; }  /* oculta la barra (WebKit) */
+
+/* Mientras hay scroll (clase puesta por JS) se abre el fade izquierdo */
+.home-reviews__track.is-scrolling {
+  --fade-left: 24px;
+}
+
+/* Registrar la custom property para que sea animable por transition.
+   Sin esto, el navegador la trata como texto y el cambio es abrupto. */
+@property --fade-left {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+.home-review {
+  scroll-snap-align: start;        /* la primera card queda pegada a la izquierda */
+  scroll-snap-stop: always;        /* no se saltea cards al deslizar fuerte */
+  flex: 0 0 78%;
+  max-width: 320px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+}
+
+/* Spacer al final del carrusel: espacio vacío del ancho restante del viewport
+   (100% menos el ancho de una card), para que la ÚLTIMA card también pueda
+   quedar pegada al borde izquierdo al hacer snap. */
+.home-reviews__track::after {
+  content: '';
+  flex: 0 0 max(22%, calc(100% - 320px));
+}
+.home-review__stars {
+  color: var(--color-terracotta);
+  letter-spacing: 2px;
+  margin-bottom: var(--spacing-sm);
+}
+.home-review__text {
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.4;
+  margin: 0 0 var(--spacing-sm);
+}
+.home-review__author {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--color-text-soft);
+  margin: 0;
+}
+.home-reviews__note {
+  font-size: var(--fs-caption);
+  color: var(--color-text-muted);
+  margin: var(--spacing-md) 0 0;
+}
+.home-reviews__google {
+  display: inline-block;
+  margin-top: var(--spacing-md);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-eggplant);
+}
+.home-reviews__google:hover {
+  text-decoration: underline;
+}
+
+/* Desktop: las 3 reseñas en fila, sin scroll */
+@media (min-width: 1024px) {
+  .home-reviews__track {
+    overflow: visible;
+    -webkit-mask-image: none;   /* sin scroll en desktop: sin fades */
+            mask-image: none;
+  }
+  .home-reviews__track::after {
+    display: none;   /* sin carrusel en desktop: no hace falta el spacer */
+  }
+  .home-review {
+    flex: 1;
+    max-width: none;
+  }
+  .home-reviews__note {
+    display: none;   /* no hay scroll en desktop, la nota sobra */
+  }
+}
+
+/* ============================================
+   6 · DÓNDE ENCONTRARNOS — bloque berenjena
+   ============================================ */
+.home-band--eggplant {
+  background-color: var(--color-eggplant);
+}
+
+/* En esta sección el título va debajo del kicker con aire */
+.home-band--eggplant .home-band__title {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Chips de bares */
+.home-bars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+.home-bar {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-small);
+  font-weight: 500;
+}

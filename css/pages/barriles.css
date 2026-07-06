@@ -1,0 +1,284 @@
+/* ============================================
+   BARRILES (barriles.html) — estilos por sección
+   B2B / mayorista: tono comercial, no de consumo.
+   Mobile-first · breakpoints 640px / 1024px.
+   Prefijo .barr- para no colisionar con otras páginas.
+   ============================================ */
+
+/* ---------- Utilidades de la página ---------- */
+.barr-note {
+  font-size: var(--fs-caption);
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+/* ============================================
+   1 · HERO
+   ============================================ */
+.barr-hero {
+  padding: var(--spacing-xxl) 0 var(--spacing-xl);
+}
+.barr-hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+}
+.barr-hero__kicker {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--spacing-sm);
+}
+.barr-hero__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: var(--fs-h1);
+  line-height: 1.02;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-md);
+}
+.barr-hero__subtitle {
+  font-size: var(--fs-body);
+  color: var(--color-text-soft);
+  margin: 0;
+  max-width: 42ch;
+}
+/* Ilustración del hero (reptil guerrero, ya mira hacia el texto) */
+.barr-hero__illus {
+  flex-shrink: 0;
+  width: 160px;
+  height: auto;
+}
+@media (min-width: 1024px) {
+  .barr-hero__illus { width: 280px; }
+}
+
+/* ============================================
+   2 · ¿POR QUÉ SUMARNOS? — bloque berenjena
+   Texto claro sobre color sólido (excepción de contraste).
+   ============================================ */
+.barr-why {
+  padding: var(--spacing-xxl) 0;
+  color: #ffffff;
+}
+.barr-why--eggplant { background-color: var(--color-eggplant); }
+
+/* Fila: ilustración (izq) + título (der) */
+.barr-why__head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+.barr-why__illus {
+  flex-shrink: 0;
+  width: 110px;        /* ilustración horizontal (serpiente) */
+  height: auto;
+}
+@media (min-width: 1024px) {
+  .barr-why__illus { width: 160px; }
+}
+.barr-why__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  line-height: 1.02;
+  color: #ffffff;      /* sobre bloque berenjena sólido */
+  margin: 0;
+}
+.barr-why__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+.barr-why__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+}
+.barr-why__icon {
+  flex-shrink: 0;
+  font-size: 22px;
+  line-height: 1.3;
+}
+.barr-why__name {
+  font-family: var(--font-body);   /* subtítulo de item, no display */
+  font-weight: 700;
+  font-size: var(--fs-body);
+  margin: 0 0 2px;
+}
+.barr-why__text {
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  opacity: 0.88;
+  margin: 0;
+  max-width: 48ch;
+}
+@media (min-width: 640px) {
+  .barr-why__list { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1024px) {
+  .barr-why__list { gap: var(--spacing-xl); }
+}
+
+/* ============================================
+   3 · FORMATOS DISPONIBLES — filas 20/30/50L
+   ============================================ */
+.barr-formats {
+  padding: var(--spacing-xxl) 0 var(--spacing-xl);
+}
+.barr-formats__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  line-height: 1.02;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-lg);
+}
+.barr-formats__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-sm);
+}
+.barr-format {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+.barr-format__name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h3);
+  line-height: 1.1;
+  color: var(--color-text);
+  margin: 0;
+}
+.barr-format__use {
+  font-size: var(--fs-small);
+  color: var(--color-text-soft);
+  margin: 2px 0 0;
+}
+.barr-format__price {
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: var(--fs-body);
+  color: var(--color-text);
+  margin: 0;
+}
+.barr-formats__styles {
+  font-size: var(--fs-small);
+  color: var(--color-text-soft);
+  margin: var(--spacing-md) 0 0;
+}
+@media (min-width: 640px) {
+  .barr-formats__list { grid-template-columns: repeat(3, 1fr); }
+  .barr-format {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-lg);
+  }
+}
+
+/* ============================================
+   4 · YA CONFÍAN EN NOSOTROS — prueba social
+   ============================================ */
+.barr-trust {
+  padding: 0 0 var(--spacing-xxl);
+}
+.barr-trust__card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+}
+.barr-trust__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--spacing-md);
+}
+.barr-trust__list {
+  list-style: none;
+  margin: 0 0 var(--spacing-sm);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+.barr-trust__chip {
+  background-color: #f0eee8;
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--fs-small);
+  color: var(--color-text);
+}
+.barr-trust__link {
+  display: inline-block;
+  margin-top: var(--spacing-sm);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-eggplant);
+}
+.barr-trust__link:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   5 · CTA CIERRE — bloque oliva
+   Único CTA contextual de la página.
+   ============================================ */
+.barr-cta {
+  padding: var(--spacing-xxl) 0;
+  color: #ffffff;
+}
+.barr-cta--olive { background-color: var(--color-olive); }
+.barr-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* título y texto a la izquierda */
+  text-align: left;
+}
+.barr-cta__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  line-height: 1.02;
+  color: #ffffff;      /* sobre bloque oliva sólido */
+  margin: 0 0 var(--spacing-sm);
+}
+.barr-cta__text {
+  font-size: var(--fs-body);
+  opacity: 0.88;
+  margin: 0 0 var(--spacing-lg);
+  max-width: 46ch;
+}
+
+/* Fila: botón (izq) + ilustración (der) */
+.barr-cta__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+}
+.barr-cta__illus {
+  flex-shrink: 0;
+  width: 80px;
+  height: auto;
+  transform: scaleX(-1);   /* espejada: que mire hacia el botón */
+}
+@media (min-width: 1024px) {
+  .barr-cta__illus { width: 120px; }
+}

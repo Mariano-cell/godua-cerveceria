@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Las cervezas de GODUA: 5 estilos artesanales, cada uno con su universo. APA, IPA, Blonde, Amber y Porter, en botella de 500cc y 1L.">
+  <title>Cervezas · GODUA Cerveza Artesanal</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css?v=11">
+  <link rel="stylesheet" href="css/reset.css?v=11">
+  <link rel="stylesheet" href="css/base.css?v=11">
+  <link rel="stylesheet" href="css/components/navbar.css?v=12">
+  <link rel="stylesheet" href="css/components/button.css?v=11">
+  <link rel="stylesheet" href="css/components/footer.css?v=11">
+  <link rel="stylesheet" href="css/components/animations.css?v=12">
+  <link rel="stylesheet" href="css/pages/cervezas.css?v=11">
+</head>
+<body class="page-cervezas">
+
+  <!-- ============================================
+       NAVBAR ("Cervezas" activo)
+       ============================================ -->
+  <header>
+    <nav class="navbar" aria-label="Navegación principal">
+      <div class="navbar__inner">
+        <a class="navbar__logo" href="index.html" aria-label="GODUA — Inicio">
+          <img src="assets/logos/GODUA-solo-web.png" alt="GODUA" width="1000" height="283" decoding="async">
+        </a>
+
+        <input type="checkbox" id="nav-toggle" class="navbar__toggle-input">
+        <ul class="navbar__links">
+          <li><a class="navbar__link" href="cervezas.html" aria-current="page">Cervezas</a></li>
+          <li><a class="navbar__link" href="chopera.html">Chopera</a></li>
+          <li><a class="navbar__link" href="barriles.html">Barriles</a></li>
+          <li><a class="navbar__link" href="merch.html">Merch</a></li>
+          <li><a class="navbar__link" href="sobre-nosotros.html">Sobre nosotros</a></li>
+          <li><a class="navbar__link" href="contacto.html">Contacto</a></li>
+        </ul>
+
+        <div class="navbar__actions">
+          <a class="navbar__whatsapp"
+             href="https://wa.me/5491168482209?text=Hola%20GODUA%2C%20quiero%20consultar"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Escribinos por WhatsApp">
+            <img src="assets/iconos/whatsapp.png" alt="WhatsApp" width="512" height="512" decoding="async">
+          </a>
+          <label for="nav-toggle" class="navbar__toggle" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+          </label>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================
+         1 · HERO
+         ============================================ -->
+    <section class="cerv-hero" aria-labelledby="cerv-title">
+      <div class="wrap cerv-hero__inner">
+        <div class="cerv-hero__text">
+          <p class="cerv-hero__kicker anim-up">Nuestras cervezas</p>
+          <h1 class="cerv-hero__title anim-up anim-d1" id="cerv-title">5 estilos, 5 mundos</h1>
+          <p class="cerv-hero__subtitle anim-up anim-d2">Cada cerveza tiene su universo. Entrá y descubrilo.</p>
+        </div>
+        <img class="cerv-hero__illus anim-up anim-d3" src="assets/ilustraciones/estilos.webp" alt="" aria-hidden="true" width="2244" height="2768" decoding="async" fetchpriority="high">
+      </div>
+    </section>
+
+    <!-- ============================================
+         2 · PORTAL — grilla de universos (5 cards)
+         Cada card es un link a su detalle. Sin WhatsApp por card.
+         ============================================ -->
+    <section class="cerv-portal" aria-label="Estilos de cerveza">
+      <div class="wrap">
+        <div class="cerv-grid" data-reveal-group>
+
+          <a class="cerv-card" href="cervezas/apacalipsis.html" data-reveal>
+            <span class="cerv-card__universe cerv-card__universe--terra"><img loading="lazy" decoding="async" class="cerv-card__nombre" src="assets/ilustraciones/nombres/apa.webp" alt="APACALIPSIS"><img loading="lazy" decoding="async" class="u-ill u-ill-1" src="assets/ilustraciones/pag-catalogo-cervezas/apa/apa-1.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-2" src="assets/ilustraciones/pag-catalogo-cervezas/apa/apa-2.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-3 is-flipped" src="assets/ilustraciones/pag-catalogo-cervezas/apa/apa-3.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-4" src="assets/ilustraciones/pag-catalogo-cervezas/apa/apa-4.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-5" src="assets/ilustraciones/pag-catalogo-cervezas/apa/apa-5.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-6" src="assets/ilustraciones/pag-catalogo-cervezas/apa/apa-6.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-7" src="assets/ilustraciones/pag-catalogo-cervezas/apa/apa-7.webp" alt="" aria-hidden="true"></span>
+            <span class="cerv-card__row">
+              <span class="cerv-card__text">
+                <span class="cerv-card__estilo">APA</span>
+                <span class="cerv-card__meta"><span class="cerv-card__meta-label">Botellas:</span> 500cc · 1L</span>
+                <span class="cerv-card__meta"><span class="cerv-card__meta-label">Barriles:</span> 20L · 30L · 50L</span>
+              </span>
+              <span class="cerv-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+
+          <a class="cerv-card" href="cervezas/ipa.html" data-reveal>
+            <span class="cerv-card__universe cerv-card__universe--eggplant"><img loading="lazy" decoding="async" class="cerv-card__nombre" src="assets/ilustraciones/nombres/ipa.webp" alt="CONSPIRANOICA"><img loading="lazy" decoding="async" class="u-ill u-ill-1" src="assets/ilustraciones/pag-catalogo-cervezas/ipa/ipa-1.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-2" src="assets/ilustraciones/pag-catalogo-cervezas/ipa/ipa-2.webp" alt="" aria-hidden="true"></span>
+            <span class="cerv-card__row">
+              <span class="cerv-card__text">
+                <span class="cerv-card__estilo">IPA</span>
+                <span class="cerv-card__meta"><span class="cerv-card__meta-label">Botellas:</span> 500cc · 1L</span>
+                <span class="cerv-card__meta"><span class="cerv-card__meta-label">Barriles:</span> 20L · 30L · 50L</span>
+              </span>
+              <span class="cerv-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+
+          <a class="cerv-card" href="cervezas/blonde.html" data-reveal>
+            <span class="cerv-card__universe cerv-card__universe--olive"><img loading="lazy" decoding="async" class="cerv-card__nombre" src="assets/ilustraciones/nombres/blonde.webp" alt="CHISPITA"><img loading="lazy" decoding="async" class="u-ill u-ill-1" src="assets/ilustraciones/pag-catalogo-cervezas/blonde/blonde-1.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-2" src="assets/ilustraciones/pag-catalogo-cervezas/blonde/blonde-2.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-3" src="assets/ilustraciones/pag-catalogo-cervezas/blonde/blonde-3.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-4" src="assets/ilustraciones/pag-catalogo-cervezas/blonde/blonde-4.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-5" src="assets/ilustraciones/pag-catalogo-cervezas/blonde/blonde-5.webp" alt="" aria-hidden="true"></span>
+            <span class="cerv-card__row">
+              <span class="cerv-card__text">
+                <span class="cerv-card__estilo">Blonde</span>
+                <span class="cerv-card__meta"><span class="cerv-card__meta-label">Botellas:</span> 500cc · 1L</span>
+                <span class="cerv-card__meta"><span class="cerv-card__meta-label">Barriles:</span> 20L · 30L · 50L</span>
+              </span>
+              <span class="cerv-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+
+          <a class="cerv-card" href="cervezas/amber.html" data-reveal>
+            <span class="cerv-card__universe cerv-card__universe--amber"><img loading="lazy" decoding="async" class="cerv-card__nombre" src="assets/ilustraciones/nombres/amber.webp" alt="AMBULANTE"><img loading="lazy" decoding="async" class="u-ill u-ill-4" src="assets/ilustraciones/pag-catalogo-cervezas/amber/amber-4.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-6" src="assets/ilustraciones/pag-catalogo-cervezas/amber/amber-6.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-7" src="assets/ilustraciones/pag-catalogo-cervezas/amber/amber-7.webp" alt="" aria-hidden="true"></span>
+            <span class="cerv-card__row">
+              <span class="cerv-card__text">
+                <span class="cerv-card__estilo">Amber</span>
+                <span class="cerv-card__meta"><span class="cerv-card__meta-label">Botellas:</span> 500cc · 1L</span>
+                <span class="cerv-card__meta"><span class="cerv-card__meta-label">Barriles:</span> 20L · 30L · 50L</span>
+              </span>
+              <span class="cerv-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+
+          <a class="cerv-card" href="cervezas/porter.html" data-reveal>
+            <span class="cerv-card__universe cerv-card__universe--dark"><img loading="lazy" decoding="async" class="cerv-card__nombre" src="assets/ilustraciones/nombres/porter.webp" alt="FABULOSA"><img loading="lazy" decoding="async" class="u-ill u-ill-1" src="assets/ilustraciones/pag-catalogo-cervezas/porter/porter-1.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-2" src="assets/ilustraciones/pag-catalogo-cervezas/porter/porter-2.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-3" src="assets/ilustraciones/pag-catalogo-cervezas/porter/porter-3.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-4" src="assets/ilustraciones/pag-catalogo-cervezas/porter/porter-4.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-5" src="assets/ilustraciones/pag-catalogo-cervezas/porter/porter-5.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-6" src="assets/ilustraciones/pag-catalogo-cervezas/porter/porter-6.webp" alt="" aria-hidden="true"><img loading="lazy" decoding="async" class="u-ill u-ill-7" src="assets/ilustraciones/pag-catalogo-cervezas/porter/porter-7.webp" alt="" aria-hidden="true"></span>
+            <span class="cerv-card__row">
+              <span class="cerv-card__text">
+                <span class="cerv-card__estilo">Porter</span>
+                <span class="cerv-card__meta"><span class="cerv-card__meta-label">Botellas:</span> 500cc · 1L</span>
+                <span class="cerv-card__meta"><span class="cerv-card__meta-label">Barriles:</span> 20L · 30L · 50L</span>
+              </span>
+              <span class="cerv-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+
+        </div>
+        <p class="cerv-note">Cada card lleva al universo de su estilo. Sin botón de WhatsApp acá: esto es un portal.</p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         3 · CTA WHATSAPP — cierre (bloque oliva)
+         ============================================ -->
+    <section class="cerv-cta cerv-cta--olive" aria-labelledby="cerv-cta-title">
+      <div class="wrap cerv-cta__inner">
+        <!-- Arriba: la frase, contra la izquierda -->
+        <h2 id="cerv-cta-title" class="cerv-cta__title" data-reveal>¿Ya sabés cuál querés?</h2>
+        <!-- Abajo: ilustración (izq) + botón (der) -->
+        <div class="cerv-cta__row" data-reveal>
+          <img loading="lazy" decoding="async" class="cerv-cta__illus" src="assets/ilustraciones/cual-queres.webp" alt="" aria-hidden="true" width="3135" height="1851">
+          <a class="btn btn--whatsapp"
+             href="https://wa.me/5491168482209?text=Hola%20GODUA%2C%20quiero%20pedir%20cervezas"
+             target="_blank" rel="noopener noreferrer">
+            <img class="btn__wa-icon" src="assets/iconos/whatsapp.png" alt="" aria-hidden="true" width="512" height="512" decoding="async">
+            Pedir por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <nav class="footer__nav" aria-label="Navegación del pie">
+          <a class="footer__link" href="cervezas.html">Cervezas</a>
+          <a class="footer__link" href="chopera.html">Chopera</a>
+          <a class="footer__link" href="barriles.html">Barriles</a>
+          <a class="footer__link" href="merch.html">Merch</a>
+          <a class="footer__link" href="sobre-nosotros.html">Sobre nosotros</a>
+          <a class="footer__link" href="contacto.html">Contacto</a>
+        </nav>
+        <a class="footer__logo" href="index.html" aria-label="GODUA — Inicio">
+          <img src="assets/logos/godua-completo-blanco.webp" alt="GODUA Cerveza" width="800" height="800" loading="lazy" decoding="async">
+        </a>
+      </div>
+
+      <div class="footer__social">
+        <a href="https://instagram.com/cervezagodua" target="_blank" rel="noopener noreferrer">@cervezagodua</a>
+        <span class="footer__dot" aria-hidden="true">·</span>
+        <a href="https://wa.me/5491168482209" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <span class="footer__dot" aria-hidden="true">·</span>
+        <a href="https://www.google.com/maps/search/?api=1&query=Cerveza%20artesanal%20God%C5%AB%C3%81%20Villa%20Adelina" target="_blank" rel="noopener noreferrer">Maps</a>
+      </div>
+
+      <p class="footer__legal">© 2026 GODUA · Villa Adelina · Beber con moderación</p>
+    </div>
+  </footer>
+
+  <script src="js/js-utils.js?v=12" defer></script>
+
+  <!-- WhatsApp flotante (solo desktop; en mobile sigue dentro del navbar) -->
+  <a class="whatsapp-fab"
+     href="https://wa.me/5491168482209?text=Hola%20GODUA%2C%20quiero%20consultar"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Escribinos por WhatsApp">
+    <img src="assets/iconos/whatsapp.png" alt="WhatsApp" width="512" height="512" decoding="async">
+  </a>
+
+</body>
+</html>

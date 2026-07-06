@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="La historia de GODUA, cervecería artesanal de Villa Adelina: tres socios, una olla prestada y la República Cervecera. Conocé quiénes hacen la cerveza.">
+  <title>Sobre nosotros · GODUA Cerveza Artesanal</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components/navbar.css?v=12">
+  <link rel="stylesheet" href="css/components/button.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/animations.css?v=12">
+  <link rel="stylesheet" href="css/pages/sobre-nosotros.css">
+</head>
+<body class="page-sobre-nosotros">
+
+  <!-- ============================================
+       NAVBAR (idéntico a la Home; "Sobre nosotros" activo)
+       ============================================ -->
+  <header>
+    <nav class="navbar" aria-label="Navegación principal">
+      <div class="navbar__inner">
+        <a class="navbar__logo" href="index.html" aria-label="GODUA — Inicio">
+          <img src="assets/logos/GODUA-solo-web.png" alt="GODUA" width="1000" height="283" decoding="async">
+        </a>
+
+        <input type="checkbox" id="nav-toggle" class="navbar__toggle-input">
+        <ul class="navbar__links">
+          <li><a class="navbar__link" href="cervezas.html">Cervezas</a></li>
+          <li><a class="navbar__link" href="chopera.html">Chopera</a></li>
+          <li><a class="navbar__link" href="barriles.html">Barriles</a></li>
+          <li><a class="navbar__link" href="merch.html">Merch</a></li>
+          <li><a class="navbar__link" href="sobre-nosotros.html" aria-current="page">Sobre nosotros</a></li>
+          <li><a class="navbar__link" href="contacto.html">Contacto</a></li>
+        </ul>
+
+        <div class="navbar__actions">
+          <a class="navbar__whatsapp"
+             href="https://wa.me/5491168482209?text=Hola%20GODUA%2C%20quiero%20consultar"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Escribinos por WhatsApp">
+            <img src="assets/iconos/whatsapp.png" alt="WhatsApp" width="512" height="512" decoding="async">
+          </a>
+          <label for="nav-toggle" class="navbar__toggle" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+          </label>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================
+         1 · HERO
+         TODO: TODO el relato de esta página es contenido
+         inventado (borrador) hasta que el cliente pase el real.
+         ============================================ -->
+    <section class="sob-hero" aria-labelledby="sob-title">
+      <div class="wrap sob-hero__inner">
+        <div class="sob-hero__text">
+          <p class="sob-hero__kicker anim-up">Sobre nosotros</p>
+          <h1 class="sob-hero__title anim-up anim-d1" id="sob-title">Reptiles de barrio</h1>
+          <p class="sob-hero__subtitle anim-up anim-d2">Hacemos cerveza en Villa Adelina desde que nos dimos cuenta de que comprarla buena era más caro que hacerla mejor.</p>
+        </div>
+        <!-- Mascota de la marca (misma del hero de la home) -->
+        <img class="sob-hero__illus anim-up anim-d3" src="assets/ilustraciones/reptil-hero.webp" alt="" aria-hidden="true" width="5616" height="5726" decoding="async" fetchpriority="high">
+      </div>
+    </section>
+
+    <!-- ============================================
+         2 · HISTORIA — relato inventado [borrador]
+         ============================================ -->
+    <section class="sob-story" aria-labelledby="sob-story-title">
+      <div class="wrap">
+        <h2 id="sob-story-title" class="sob-story__title" data-reveal>La República Cervecera</h2>
+        <div class="sob-story__body" data-reveal>
+          <p>GODUA arrancó en una parrilla de Villa Adelina, con una olla prestada y la teoría de que el barrio merecía una cerveza propia. Las primeras tandas salieron raras, las segundas mejores, y para la décima los vecinos ya golpeaban la puerta preguntando cuándo salía la próxima.</p>
+          <p>De la parrilla pasamos al garaje, del garaje a la fábrica, y en el camino apareció el universo GODUA: los reptiles, los mundos de cada estilo y la idea de que la República Cervecera de Villa Adelina no es un lugar — es cualquier mesa donde se abre una botella nuestra.</p>
+          <p>Hoy seguimos haciendo todo acá: recetas propias, tandas chicas y trato directo. Si nos escribís, te contesta uno de nosotros.</p>
+        </div>
+        <p class="sob-note">Relato borrador <span class="sob-ph">[a reemplazar por la historia real del cliente]</span></p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         3 · CÓMO LA HACEMOS — bloque oliva
+         ============================================ -->
+    <section class="sob-how sob-how--olive" aria-labelledby="sob-how-title">
+      <div class="wrap">
+        <div class="sob-how__head" data-reveal>
+          <img loading="lazy" decoding="async" class="sob-how__illus" src="assets/ilustraciones/que-ofrecemos.webp" alt="" aria-hidden="true" width="1353" height="1968">
+          <h2 id="sob-how-title" class="sob-how__title">Cómo la hacemos</h2>
+        </div>
+        <ul class="sob-how__list" data-reveal-group>
+          <li class="sob-how__item" data-reveal>
+            <span class="sob-how__icon" aria-hidden="true">🌾</span>
+            <div class="sob-how__body">
+              <h3 class="sob-how__name">Recetas propias</h3>
+              <p class="sob-how__text">Cinco estilos, cero apuro. Cada receta se ajustó tanda a tanda hasta quedar como queríamos.</p>
+            </div>
+          </li>
+          <li class="sob-how__item" data-reveal>
+            <span class="sob-how__icon" aria-hidden="true">🛠</span>
+            <div class="sob-how__body">
+              <h3 class="sob-how__name">Tandas chicas</h3>
+              <p class="sob-how__text">Producimos lo que podemos cuidar. Preferimos quedarnos cortos antes que aflojar la calidad.</p>
+            </div>
+          </li>
+          <li class="sob-how__item" data-reveal>
+            <span class="sob-how__icon" aria-hidden="true">🏘</span>
+            <div class="sob-how__body">
+              <h3 class="sob-how__name">De acá</h3>
+              <p class="sob-how__text">Villa Adelina primero: los bares del barrio la sirven y los vecinos la piden por nombre.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================
+         4 · SOCIOS FUNDADORES
+         Fotos: stock gratis (randomuser.me) como borrador,
+         reemplazar por fotos reales de los socios.
+         Nombres inventados [borrador], salvo Eduardo (WhatsApp).
+         ============================================ -->
+    <section class="sob-team" aria-labelledby="sob-team-title">
+      <div class="wrap">
+        <h2 id="sob-team-title" class="sob-team__title" data-reveal>Los socios</h2>
+        <div class="sob-team__grid" data-reveal-group>
+
+          <article class="sob-member" data-reveal="pop">
+            <img class="sob-member__photo" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Eduardo, socio fundador de GODUA" width="128" height="128" loading="lazy">
+            <h3 class="sob-member__name">Eduardo</h3>
+            <p class="sob-member__role">Fundador · Ventas y eventos</p>
+            <p class="sob-member__bio">El que te contesta el WhatsApp. Si hay una chopera funcionando en una fiesta de la zona, probablemente la instaló él.</p>
+          </article>
+
+          <article class="sob-member" data-reveal="pop">
+            <img class="sob-member__photo" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Socio fundador de GODUA" width="128" height="128" loading="lazy">
+            <h3 class="sob-member__name">Martín <span class="sob-ph">[borrador]</span></h3>
+            <p class="sob-member__role">Fundador · Maestro cervecero</p>
+            <p class="sob-member__bio">El de la olla prestada. Guarda un cuaderno con todas las recetas que fallaron para que no vuelvan a pasar.</p>
+          </article>
+
+          <article class="sob-member" data-reveal="pop">
+            <img class="sob-member__photo" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Socia fundadora de GODUA" width="128" height="128" loading="lazy">
+            <h3 class="sob-member__name">Sofía <span class="sob-ph">[borrador]</span></h3>
+            <p class="sob-member__role">Fundadora · Marca y universo</p>
+            <p class="sob-member__bio">La culpable de que los reptiles existan. Convirtió cinco estilos de cerveza en cinco mundos.</p>
+          </article>
+
+        </div>
+        <p class="sob-note">Fotos de stock y nombres/bios borrador <span class="sob-ph">[reemplazar por los socios reales]</span></p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         5 · CTA CIERRE — bloque berenjena
+         ============================================ -->
+    <section class="sob-cta sob-cta--eggplant" aria-labelledby="sob-cta-title">
+      <div class="wrap sob-cta__inner" data-reveal>
+        <h2 id="sob-cta-title" class="sob-cta__title">Vení a conocernos</h2>
+        <p class="sob-cta__text">Escribinos y coordinamos: retiro por la fábrica, envío o una visita.</p>
+        <a class="btn btn--whatsapp"
+           href="https://wa.me/5491168482209?text=Hola%21%20Quiero%20conocer%20la%20f%C3%A1brica%20de%20GODUA"
+           target="_blank" rel="noopener noreferrer">
+          <img class="btn__wa-icon" src="assets/iconos/whatsapp.png" alt="" aria-hidden="true" width="512" height="512" decoding="async">
+          Escribir por WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       FOOTER (idéntico a la Home)
+       ============================================ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <nav class="footer__nav" aria-label="Navegación del pie">
+          <a class="footer__link" href="cervezas.html">Cervezas</a>
+          <a class="footer__link" href="chopera.html">Chopera</a>
+          <a class="footer__link" href="barriles.html">Barriles</a>
+          <a class="footer__link" href="merch.html">Merch</a>
+          <a class="footer__link" href="sobre-nosotros.html">Sobre nosotros</a>
+          <a class="footer__link" href="contacto.html">Contacto</a>
+        </nav>
+        <a class="footer__logo" href="index.html" aria-label="GODUA — Inicio">
+          <img src="assets/logos/godua-completo-blanco.webp" alt="GODUA Cerveza" width="800" height="800" loading="lazy" decoding="async">
+        </a>
+      </div>
+
+      <div class="footer__social">
+        <a href="https://instagram.com/cervezagodua" target="_blank" rel="noopener noreferrer">@cervezagodua</a>
+        <span class="footer__dot" aria-hidden="true">·</span>
+        <a href="https://wa.me/5491168482209" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <span class="footer__dot" aria-hidden="true">·</span>
+        <a href="https://www.google.com/maps/search/?api=1&query=Cerveza%20artesanal%20God%C5%AB%C3%81%20Villa%20Adelina" target="_blank" rel="noopener noreferrer">Maps</a>
+      </div>
+
+      <p class="footer__legal">© 2026 GODUA · Villa Adelina · Beber con moderación</p>
+    </div>
+  </footer>
+
+  <script src="js/js-utils.js?v=12" defer></script>
+
+  <!-- WhatsApp flotante (solo desktop; en mobile sigue dentro del navbar) -->
+  <a class="whatsapp-fab"
+     href="https://wa.me/5491168482209?text=Hola%20GODUA%2C%20quiero%20consultar"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Escribinos por WhatsApp">
+    <img src="assets/iconos/whatsapp.png" alt="WhatsApp" width="512" height="512" decoding="async">
+  </a>
+
+</body>
+</html>

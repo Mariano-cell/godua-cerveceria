@@ -1,0 +1,246 @@
+/* ============================================
+   SOBRE NOSOTROS (sobre-nosotros.html)
+   Contenido borrador (inventado) hasta tener el
+   relato real del cliente.
+   Mobile-first · breakpoints 640px / 1024px.
+   Prefijo .sob- para no colisionar con otras páginas.
+   ============================================ */
+
+/* ---------- Utilidades de la página ---------- */
+.sob-note {
+  font-size: var(--fs-caption);
+  color: var(--color-text-muted);
+  margin: var(--spacing-md) 0 0;
+}
+.sob-ph {
+  color: var(--color-text-muted);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ============================================
+   1 · HERO
+   ============================================ */
+.sob-hero {
+  padding: var(--spacing-xxl) 0 var(--spacing-xl);
+}
+.sob-hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+}
+.sob-hero__kicker {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--spacing-sm);
+}
+.sob-hero__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: var(--fs-h1);
+  line-height: 1.02;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-md);
+}
+.sob-hero__subtitle {
+  font-size: var(--fs-body);
+  color: var(--color-text-soft);
+  margin: 0;
+  max-width: 42ch;
+}
+.sob-hero__illus {
+  flex-shrink: 0;
+  width: 130px;
+  height: auto;
+}
+@media (min-width: 1024px) {
+  .sob-hero__illus { width: 220px; }
+}
+
+/* ============================================
+   2 · HISTORIA
+   ============================================ */
+.sob-story {
+  padding: 0 0 var(--spacing-xxl);
+}
+.sob-story__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  line-height: 1.02;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-lg);
+}
+.sob-story__body p {
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-md);
+  max-width: 62ch;
+}
+.sob-story__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   3 · CÓMO LA HACEMOS — bloque oliva
+   ============================================ */
+.sob-how {
+  padding: var(--spacing-xxl) 0;
+  color: #ffffff;
+}
+.sob-how--olive { background-color: var(--color-olive); }
+
+/* Fila: ilustración (izq) + título (der) */
+.sob-how__head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+.sob-how__illus {
+  flex-shrink: 0;
+  width: 100px;
+  height: auto;
+}
+@media (min-width: 1024px) {
+  .sob-how__illus { width: 150px; }
+}
+.sob-how__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  line-height: 1.02;
+  color: #ffffff;      /* sobre bloque oliva sólido */
+  margin: 0;
+}
+.sob-how__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+.sob-how__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+}
+.sob-how__icon {
+  flex-shrink: 0;
+  font-size: 22px;
+  line-height: 1.3;
+}
+.sob-how__name {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-body);
+  margin: 0 0 2px;
+}
+.sob-how__text {
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  opacity: 0.88;
+  margin: 0;
+  max-width: 48ch;
+}
+@media (min-width: 640px) {
+  .sob-how__list { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1024px) {
+  .sob-how__list { gap: var(--spacing-xl); }
+}
+
+/* ============================================
+   4 · SOCIOS FUNDADORES
+   ============================================ */
+.sob-team {
+  padding: var(--spacing-xxl) 0;
+}
+.sob-team__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  line-height: 1.02;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-lg);
+}
+.sob-team__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+.sob-member {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  text-align: center;
+}
+.sob-member__photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto var(--spacing-md);
+  display: block;
+}
+.sob-member__name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h3);
+  line-height: 1.1;
+  color: var(--color-text);
+  margin: 0 0 2px;
+}
+.sob-member__role {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-olive);
+  margin: 0 0 var(--spacing-sm);
+}
+.sob-member__bio {
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--color-text-soft);
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .sob-team__grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1024px) {
+  .sob-member { padding: var(--spacing-xl); }
+  .sob-member__photo { width: 120px; height: 120px; }
+}
+
+/* ============================================
+   5 · CTA CIERRE — bloque berenjena
+   ============================================ */
+.sob-cta {
+  padding: var(--spacing-xxl) 0;
+  color: #ffffff;
+}
+.sob-cta--eggplant { background-color: var(--color-eggplant); }
+.sob-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* título y texto a la izquierda */
+  text-align: left;
+}
+.sob-cta__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  line-height: 1.02;
+  color: #ffffff;      /* sobre bloque berenjena sólido */
+  margin: 0 0 var(--spacing-sm);
+}
+.sob-cta__text {
+  font-size: var(--fs-body);
+  opacity: 0.88;
+  margin: 0 0 var(--spacing-lg);
+  max-width: 46ch;
+}

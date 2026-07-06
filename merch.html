@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Merch de GODUA, cervecería artesanal de Villa Adelina: buzos, copas y más piezas del mundo GODUA. Pocas piezas, bien hechas.">
+  <title>Merch · GODUA Cerveza Artesanal</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components/navbar.css?v=12">
+  <link rel="stylesheet" href="css/components/button.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/animations.css?v=12">
+  <link rel="stylesheet" href="css/pages/merch.css">
+</head>
+<body class="page-merch">
+
+  <!-- ============================================
+       NAVBAR (idéntico a la Home; "Merch" activo)
+       ============================================ -->
+  <header>
+    <nav class="navbar" aria-label="Navegación principal">
+      <div class="navbar__inner">
+        <a class="navbar__logo" href="index.html" aria-label="GODUA — Inicio">
+          <img src="assets/logos/GODUA-solo-web.png" alt="GODUA" width="1000" height="283" decoding="async">
+        </a>
+
+        <input type="checkbox" id="nav-toggle" class="navbar__toggle-input">
+        <ul class="navbar__links">
+          <li><a class="navbar__link" href="cervezas.html">Cervezas</a></li>
+          <li><a class="navbar__link" href="chopera.html">Chopera</a></li>
+          <li><a class="navbar__link" href="barriles.html">Barriles</a></li>
+          <li><a class="navbar__link" href="merch.html" aria-current="page">Merch</a></li>
+          <li><a class="navbar__link" href="sobre-nosotros.html">Sobre nosotros</a></li>
+          <li><a class="navbar__link" href="contacto.html">Contacto</a></li>
+        </ul>
+
+        <div class="navbar__actions">
+          <a class="navbar__whatsapp"
+             href="https://wa.me/5491168482209?text=Hola%20GODUA%2C%20quiero%20consultar"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Escribinos por WhatsApp">
+            <img src="assets/iconos/whatsapp.png" alt="WhatsApp" width="512" height="512" decoding="async">
+          </a>
+          <label for="nav-toggle" class="navbar__toggle" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+          </label>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================
+         1 · HERO — página breve a propósito
+         ============================================ -->
+    <section class="merch-hero" aria-labelledby="merch-title">
+      <div class="wrap merch-hero__inner">
+        <div class="merch-hero__text">
+          <p class="merch-hero__kicker anim-up">Merch</p>
+          <h1 class="merch-hero__title anim-up anim-d1" id="merch-title">Llevate el mundo GODUA</h1>
+          <p class="merch-hero__subtitle anim-up anim-d2">Para fanáticos de la marca. Pocas piezas, bien hechas.</p>
+        </div>
+        <!-- Ilustración del hero: gato (mira hacia el texto) -->
+        <img class="merch-hero__illus anim-up anim-d3" src="assets/ilustraciones/gato.webp" alt="" aria-hidden="true" width="597" height="822" decoding="async" fetchpriority="high">
+      </div>
+    </section>
+
+    <!-- ============================================
+         2 · PRODUCTOS — grilla 2 columnas, foto protagonista
+         Datos (talles/colores/material) pendientes del cliente.
+         Precios del backend: no hardcodear ($X placeholder).
+         ============================================ -->
+    <section class="merch-products" aria-label="Productos">
+      <div class="wrap">
+        <div class="merch-grid" data-reveal-group>
+
+          <article class="merch-card" data-reveal="pop">
+            <div class="merch-card__photo illus-box" aria-hidden="true">foto buzo<br>(pendiente)</div>
+            <div class="merch-card__info">
+              <h2 class="merch-card__name">Buzo</h2>
+              <p class="merch-card__meta">Talles S–XL · <span class="merch-ph">[colores]</span></p>
+              <p class="merch-card__price" data-price="merch-buzo">$X</p>
+            </div>
+          </article>
+
+          <article class="merch-card" data-reveal="pop">
+            <div class="merch-card__photo illus-box" aria-hidden="true">foto copa<br>(pendiente)</div>
+            <div class="merch-card__info">
+              <h2 class="merch-card__name">Copa</h2>
+              <p class="merch-card__meta"><span class="merch-ph">[material · capacidad]</span></p>
+              <p class="merch-card__price" data-price="merch-copa">$X</p>
+            </div>
+          </article>
+
+        </div>
+        <p class="merch-note" data-reveal>Productos, talles, colores y material: pendientes del cliente</p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         3 · CTA CIERRE — bloque oliva
+         Único CTA contextual de la página.
+         ============================================ -->
+    <section class="merch-cta merch-cta--olive" aria-labelledby="merch-cta-title">
+      <div class="wrap merch-cta__inner" data-reveal>
+        <h2 id="merch-cta-title" class="merch-cta__title">¿Querés algo?</h2>
+        <p class="merch-cta__text">Escribinos y coordinamos talle, color y envío.</p>
+        <div class="merch-cta__row">
+          <img loading="lazy" decoding="async" class="merch-cta__illus" src="assets/ilustraciones/cual-queres.webp" alt="" aria-hidden="true" width="3135" height="1851">
+          <a class="btn btn--whatsapp"
+             href="https://wa.me/5491168482209?text=Hola%21%20Quiero%20consultar%20por%20el%20merch%20de%20GODUA"
+             target="_blank" rel="noopener noreferrer">
+            <img class="btn__wa-icon" src="assets/iconos/whatsapp.png" alt="" aria-hidden="true" width="512" height="512" decoding="async">
+            Pedir por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       FOOTER (idéntico a la Home)
+       ============================================ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <nav class="footer__nav" aria-label="Navegación del pie">
+          <a class="footer__link" href="cervezas.html">Cervezas</a>
+          <a class="footer__link" href="chopera.html">Chopera</a>
+          <a class="footer__link" href="barriles.html">Barriles</a>
+          <a class="footer__link" href="merch.html">Merch</a>
+          <a class="footer__link" href="sobre-nosotros.html">Sobre nosotros</a>
+          <a class="footer__link" href="contacto.html">Contacto</a>
+        </nav>
+        <a class="footer__logo" href="index.html" aria-label="GODUA — Inicio">
+          <img src="assets/logos/godua-completo-blanco.webp" alt="GODUA Cerveza" width="800" height="800" loading="lazy" decoding="async">
+        </a>
+      </div>
+
+      <div class="footer__social">
+        <a href="https://instagram.com/cervezagodua" target="_blank" rel="noopener noreferrer">@cervezagodua</a>
+        <span class="footer__dot" aria-hidden="true">·</span>
+        <a href="https://wa.me/5491168482209" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <span class="footer__dot" aria-hidden="true">·</span>
+        <a href="https://www.google.com/maps/search/?api=1&query=Cerveza%20artesanal%20God%C5%AB%C3%81%20Villa%20Adelina" target="_blank" rel="noopener noreferrer">Maps</a>
+      </div>
+
+      <p class="footer__legal">© 2026 GODUA · Villa Adelina · Beber con moderación</p>
+    </div>
+  </footer>
+
+  <script src="js/js-utils.js?v=12" defer></script>
+
+  <!-- WhatsApp flotante (solo desktop; en mobile sigue dentro del navbar) -->
+  <a class="whatsapp-fab"
+     href="https://wa.me/5491168482209?text=Hola%20GODUA%2C%20quiero%20consultar"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Escribinos por WhatsApp">
+    <img src="assets/iconos/whatsapp.png" alt="WhatsApp" width="512" height="512" decoding="async">
+  </a>
+
+</body>
+</html>

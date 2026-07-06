@@ -1,0 +1,262 @@
+/* ============================================
+   Componente: NAVBAR
+   - Sticky arriba (queda fijo al hacer scroll).
+   - Logo GODUA (izq) + links (centro) + WhatsApp (der).
+   - Botón WhatsApp SIEMPRE visible, también en mobile.
+   - Menú mobile con hamburguesa, sin JS (checkbox oculto).
+   Mobile-first · breakpoint 1024px.
+   ============================================ */
+
+/* El sticky va en el <header> (contenedor), NO en .navbar:
+   sticky solo adhiere dentro de los límites del padre, y como el
+   header mide lo mismo que el navbar, ahí no tenía dónde pegarse. */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar {
+  position: relative;   /* referencia para el dropdown absoluto */
+  background-color: var(--color-header);
+  border-top: 1px solid var(--color-text);
+  border-bottom: 1px solid var(--color-text);
+  /* Smart header: se esconde al scrollear hacia abajo y
+     reaparece al scrollear hacia arriba (clase puesta por JS) */
+  transition: transform 0.3s ease;
+}
+.navbar--hidden {
+  transform: translateY(-100%);
+}
+
+/* Fila interna: centrada y con ancho máximo del sitio */
+.navbar__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--margen-A-mobile);
+  height: var(--navbar-height-mobile);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+
+/* ---------- Logo (imagen) ---------- */
+.navbar__logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.navbar__logo img {
+  height: 28px;   /* controla el tamaño; el ancho se ajusta solo */
+  width: auto;
+  display: block;
+}
+
+/* Desktop: logo un poco más grande, acorde a la barra más alta */
+@media (min-width: 1024px) {
+  .navbar__logo img {
+    height: 34px;
+  }
+}
+
+/* ---------- Zona derecha (WhatsApp + hamburguesa) ---------- */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--margen-A-mobile);
+}
+
+/* Enlace WhatsApp: es el icono completo (el PNG ya trae su fondo verde).
+   Siempre visible, también en mobile. */
+.navbar__whatsapp {
+  display: inline-flex;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease;
+}
+.navbar__whatsapp:hover {
+  opacity: 0.85;
+}
+.navbar__whatsapp img {
+  width: 36px;
+  height: 36px;
+  display: block;
+}
+
+/* ---------- Hamburguesa (solo mobile) ---------- */
+/* El checkbox está oculto; el <label> es el botón visible.
+   Al marcarlo, se despliega el menú (truco CSS-only). */
+.navbar__toggle-input {
+  display: none;
+}
+.navbar__toggle {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  height: 44px;         /* área táctil mínima accesible (vertical) */
+  padding: 10px 0;      /* sin padding lateral: se alinea al borde */
+}
+.navbar__toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* ---------- Links ---------- */
+/* En mobile: menú desplegable (oculto hasta abrir la hamburguesa) */
+.navbar__links {
+  /* Siempre renderizado (display:none no se puede animar):
+     se oculta con opacity + visibility + un corrimiento hacia arriba. */
+  display: flex;
+  position: absolute;
+  /* Panel flotante: despegado del header y de los bordes laterales */
+  top: calc(var(--navbar-height-mobile) + var(--spacing-sm));
+  left: var(--spacing-sm);
+  right: var(--spacing-sm);
+  flex-direction: column;
+  background-color: var(--color-header);
+  padding: var(--spacing-sm) 0;
+  border: 1px solid var(--color-text);
+  border-radius: var(--radius-md);
+  /* drop-shadow y no box-shadow: la sombra sigue a la forma recortada
+     por clip-path (box-shadow quedaría cortada por el recorte) */
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
+
+  /* Efecto persiana con clip-path: se recorta el 100% inferior y la
+     animación destapa hasta el alto REAL del menú (sin tope estimado).
+     Mucho más fluido que animar max-height: el recorte no recalcula
+     layout en cada frame y el navegador puede acelerarlo por GPU. */
+  clip-path: inset(0 0 100% 0 round var(--radius-md));
+  visibility: hidden;              /* no clickeable ni legible por lectores */
+  /* visibility se esconde AL FINAL (delay = duración) para que se vea la salida */
+  transition: clip-path 0.25s ease-in, visibility 0s linear 0.25s;
+}
+/* Cuando el checkbox está marcado, baja la persiana */
+.navbar__toggle-input:checked ~ .navbar__links {
+  clip-path: inset(0 0 0 0 round var(--radius-md));
+  visibility: visible;
+  /* ease-out marcado: arranca rápido y se asienta suave */
+  transition: clip-path 0.35s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s;
+}
+
+/* Hamburguesa → X cuando el menú está abierto
+   (las barras ya tenían transition declarada) */
+.navbar__toggle-input:checked ~ .navbar__actions .navbar__toggle span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar__toggle-input:checked ~ .navbar__actions .navbar__toggle span:nth-child(2) {
+  opacity: 0;
+}
+.navbar__toggle-input:checked ~ .navbar__actions .navbar__toggle span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.navbar__link {
+  display: block;                 /* ocupa su bloque: el padding no se solapa con los vecinos */
+  padding: var(--spacing-sm) var(--spacing-md);   /* menos espacio vertical */
+  font-weight: 500;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+}
+.navbar__link:last-child {
+  border-bottom: none;
+}
+/* En mobile no hay hover real; solo marcamos la página activa */
+.navbar__link[aria-current="page"] {
+  color: var(--color-olive);
+}
+
+/* ============================================
+   Desktop (>= 1024px)
+   - Barra más alta, links en fila al centro,
+     hamburguesa oculta, menú siempre visible.
+   ============================================ */
+@media (min-width: 1024px) {
+  .navbar__inner {
+    height: var(--navbar-height);
+    padding: 0 var(--margen-A-desktop);
+  }
+
+  .navbar__toggle {
+    display: none;
+  }
+
+  /* La zona derecha (WhatsApp + hamburguesa) desaparece en desktop:
+     el WhatsApp pasa a ser un boton flotante (.whatsapp-fab, abajo) */
+  .navbar__actions {
+    display: none;
+  }
+
+  .navbar__links {
+    display: flex;
+    position: static;
+    padding: 0;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;   /* links lo mas a la derecha posible */
+    gap: var(--spacing-xl);
+    background: none;
+    border: none;
+    box-shadow: none;
+    /* En desktop el menú está siempre visible: sin animación */
+    clip-path: none;
+    filter: none;
+    visibility: visible;
+    transition: none;
+  }
+
+  .navbar__link {
+    padding: var(--spacing-xs) 0;
+    border: none;
+    border-bottom: 2px solid transparent; /* subrayado en hover/activo */
+  }
+  .navbar__link:hover,
+  .navbar__link[aria-current="page"] {
+    color: var(--color-olive);
+    background: none;
+    border-bottom-color: var(--color-olive);
+  }
+}
+
+
+/* Sin movimiento si el usuario lo pidió (el menú sigue funcionando) */
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .navbar__links,
+  .navbar__toggle span {
+    transition: none;
+  }
+}
+
+
+/* ============================================
+   WHATSAPP FLOTANTE (solo desktop)
+   Fijo abajo a la derecha del viewport, siempre visible.
+   En mobile: display none (el boton sigue en el navbar).
+   ============================================ */
+.whatsapp-fab {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .whatsapp-fab {
+    display: inline-flex;
+    position: fixed;
+    right: var(--spacing-lg);
+    bottom: var(--spacing-lg);
+    z-index: 90; /* debajo del navbar (100), arriba del contenido */
+    transition: transform 0.2s ease;
+  }
+  .whatsapp-fab:hover {
+    transform: scale(1.08);
+  }
+  .whatsapp-fab img {
+    width: 56px;
+    height: 56px;
+    display: block;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
+  }
+}

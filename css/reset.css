@@ -1,0 +1,78 @@
+/* ============================================
+   Reset mínimo — base para todos los componentes
+   ============================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Los enlaces heredan color y no llevan subrayado por defecto */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Imágenes/SVG como bloque y responsivas */
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Botones e inputs heredan la tipografía */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Listas sin viñetas cuando las usamos para navegación */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Foco visible accesible (contorno oliva de marca) */
+:focus-visible {
+  outline: 2px solid var(--color-olive);
+  outline-offset: 2px;
+}
+
+/* Accesibilidad: oculta visualmente pero deja el texto para
+   lectores de pantalla (ej: un <h2> de sección sin título visible). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

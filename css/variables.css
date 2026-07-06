@@ -1,0 +1,80 @@
+/* ============================================
+   GODUA — Variables globales (design tokens)
+   Paleta nueva: cálida de barrio, con actitud
+   ============================================ */
+
+:root {
+  /* --- Colores: paleta nueva --- */
+  --color-bg: #f4f3f0;             /* Off-white cálido */
+  --color-text: #2b2b2b;           /* Títulos y cuerpo */
+  --color-text-soft: #6a6a62;      /* Secundario */
+  --color-text-muted: #8a8a82;     /* Kickers, captions */
+  --color-olive: #6b7245;          /* Marca (reptil, detalles) */
+  --color-eggplant: #5b4a7a;       /* Acento berenjena */
+  --color-terracotta: #a63d2f;     /* Acento terracota */
+  --color-whatsapp: #28a71b;       /* Verde del icono de WhatsApp (assets/iconos/whatsapp.png) */
+  --color-surface: #ffffff;        /* Tarjetas */
+  --color-border: #e2e1dc;         /* Bordes sutiles */
+  --color-header: #dce0cd;     /* Fondo del navbar (salvia claro, se distingue del hero) */
+
+  /* --- Colores: estados --- */
+  --color-error: #d32f2f;
+  --color-success: #388e3c;
+  --color-info: #1976d2;
+
+  /* --- Tipografía --- */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Roboto, sans-serif;
+  --font-mono: 'Monaco', 'Courier New', monospace;
+
+  /* Escala tipográfica (mobile-first) */
+  --fs-h1: 38px;
+  --fs-h2: 28px;
+  --fs-h3: 24px;
+  --fs-body: 16px;
+  --fs-small: 15px;
+  --fs-caption: 12px;
+
+  /* --- Spacing (base 8px) --- */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  --spacing-xxxl: 64px;
+
+  /* --- Border radius --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* --- Sombras --- */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08);
+  --shadow-md: 0 3px 6px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.12);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.1);
+
+  /* --- Layout --- */
+  /* Margen lateral estándar del sitio en mobile (padding lateral del header).
+     Reutilizable en cualquier página y en cualquier chat del proyecto. */
+  --margen-A-mobile: 20px;
+
+  --container-max: 1100px;
+  --navbar-height: 80px;
+  --navbar-height-mobile: 60px;
+}
+
+/* Desktop breakpoint (1024px+) */
+@media (min-width: 1024px) {
+  :root {
+    --fs-h1: 44px;
+    --fs-h2: 32px;
+    --fs-h3: 28px;
+
+    /* Contenedor al 100% del viewport: el aire lateral NO lo da
+       el contenedor sino el padding estandar de cada wrap
+       (--margen-A-desktop), que crece suavemente con la pantalla. */
+    --container-max: 100%;
+    --margen-A-desktop: clamp(24px, 3.5vw, 64px);
+  }
+}

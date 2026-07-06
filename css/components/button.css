@@ -1,0 +1,100 @@
+/* ============================================
+   Componente: BOTÓN (.btn)
+   Variantes:
+     .btn--primary    fondo oscuro, texto claro (CTA principal)
+     .btn--ghost      transparente con borde (secundario)
+     .btn--on-color   para usar DENTRO de bloques oliva/berenjena
+                      (se invierte: fondo claro, texto del bloque)
+   Tamaños: (base) · .btn--sm · .btn--lg
+   Sirve tanto para <a> como para <button>.
+   ============================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  line-height: 1;
+  border: 1.5px solid transparent;  /* mismo alto en todas las variantes */
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease,
+              border-color 0.2s ease, transform 0.15s ease;
+}
+
+/* Al presionar, un hundido sutil (feedback táctil) */
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* ---------- Primario: fondo oscuro ---------- */
+.btn--primary {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+}
+.btn--primary:hover {
+  background-color: #444440;   /* oscuro un poco más claro */
+}
+
+/* ---------- Ghost / secundario: borde ---------- */
+.btn--ghost {
+  background-color: transparent;
+  color: var(--color-text);
+  border-color: var(--color-text);
+}
+.btn--ghost:hover {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+}
+
+/* ---------- Sobre bloque de color (oliva/berenjena) ---------- */
+/* Se invierte: fondo claro, texto oscuro. Legible sobre color sólido. */
+.btn--on-color {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+.btn--on-color:hover {
+  background-color: #ffffff;
+}
+
+/* ---------- La flecha del CTA ---------- */
+/* Se desplaza levemente al pasar el mouse (microinteracción). */
+.btn__arrow {
+  transition: transform 0.2s ease;
+}
+.btn:hover .btn__arrow {
+  transform: translateX(3px);
+}
+
+/* ---------- Tamaños ---------- */
+.btn--sm {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--fs-small);
+}
+.btn--lg {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  font-size: var(--fs-body);
+}
+
+/* ---------- Ancho completo (útil en mobile) ---------- */
+.btn--block {
+  width: 100%;
+}
+
+/* ---------- WhatsApp: verde de marca + icono ---------- */
+.btn--whatsapp {
+  background-color: var(--color-whatsapp);
+  color: #ffffff;
+}
+.btn--whatsapp:hover {
+  filter: brightness(1.06);
+}
+.btn__wa-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+}

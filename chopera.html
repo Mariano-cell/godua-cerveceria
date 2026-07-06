@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alquiler de chopera GODUA para eventos: chopera + barril + CO2 incluidos, alquiler por 24 h. Cumpleaños, fiestas y eventos en Villa Adelina y zona.">
+  <title>Chopera para eventos · GODUA Cerveza Artesanal</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components/navbar.css?v=6">
+  <link rel="stylesheet" href="css/components/button.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/animations.css?v=6">
+  <link rel="stylesheet" href="css/pages/chopera.css">
+</head>
+<body class="page-chopera">
+
+  <!-- ============================================
+       NAVBAR (idéntico a la Home; "Chopera" activo)
+       ============================================ -->
+  <header>
+    <nav class="navbar" aria-label="Navegación principal">
+      <div class="navbar__inner">
+        <a class="navbar__logo" href="index.html" aria-label="GODUA — Inicio">
+          <img src="assets/logos/GODUA-solo-web.png" alt="GODUA" width="1000" height="283" decoding="async">
+        </a>
+
+        <input type="checkbox" id="nav-toggle" class="navbar__toggle-input">
+        <ul class="navbar__links">
+          <li><a class="navbar__link" href="cervezas.html">Cervezas</a></li>
+          <li><a class="navbar__link" href="chopera.html" aria-current="page">Chopera</a></li>
+          <li><a class="navbar__link" href="barriles.html">Barriles</a></li>
+          <li><a class="navbar__link" href="merch.html">Merch</a></li>
+          <li><a class="navbar__link" href="sobre-nosotros.html">Sobre nosotros</a></li>
+          <li><a class="navbar__link" href="contacto.html">Contacto</a></li>
+        </ul>
+
+        <div class="navbar__actions">
+          <a class="navbar__whatsapp"
+             href="https://wa.me/5491168482209?text=Hola%20GODUA%2C%20quiero%20consultar"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Escribinos por WhatsApp">
+            <img src="assets/iconos/whatsapp.png" alt="WhatsApp" width="512" height="512" decoding="async">
+          </a>
+          <label for="nav-toggle" class="navbar__toggle" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+          </label>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================
+         1 · HERO
+         ============================================ -->
+    <section class="chop-hero" aria-labelledby="chop-title">
+      <div class="wrap chop-hero__inner">
+        <div class="chop-hero__text">
+          <p class="chop-hero__kicker anim-up">Eventos</p>
+          <h1 class="chop-hero__title anim-up anim-d1" id="chop-title">Barriles &amp; choperas</h1>
+          <p class="chop-hero__subtitle anim-up anim-d2">¿Cumpleaños, fiesta, evento? Te llevamos la cerveza tirada a donde sea.</p>
+        </div>
+        <!-- Ilustración del hero: cocodrilo con guitarra -->
+        <img class="chop-hero__illus anim-up-flip anim-d3" src="assets/ilustraciones/eventos.webp" alt="" aria-hidden="true" width="2500" height="2092" decoding="async" fetchpriority="high">
+      </div>
+    </section>
+
+    <!-- ============================================
+         2 · CÓMO FUNCIONA — bloque oliva
+         La página que enseña: resuelve dudas antes de vender.
+         ============================================ -->
+    <section class="chop-how chop-how--olive" aria-labelledby="chop-how-title">
+      <div class="wrap">
+        <div class="chop-how__head" data-reveal>
+          <img loading="lazy" decoding="async" class="chop-how__illus" src="assets/ilustraciones/como-funciona.webp" alt="" aria-hidden="true" width="776" height="1679">
+          <h2 id="chop-how-title" class="chop-how__title">Cómo funciona</h2>
+        </div>
+        <ul class="chop-how__list" data-reveal-group>
+          <li class="chop-how__item" data-reveal>
+            <span class="chop-how__icon" aria-hidden="true">📦</span>
+            <div class="chop-how__body">
+              <h3 class="chop-how__name">Qué incluye</h3>
+              <p class="chop-how__text">Chopera + barril del estilo que elijas + CO2.</p>
+            </div>
+          </li>
+          <li class="chop-how__item" data-reveal>
+            <span class="chop-how__icon" aria-hidden="true">⏱</span>
+            <div class="chop-how__body">
+              <h3 class="chop-how__name">Cuánto dura</h3>
+              <p class="chop-how__text">Alquiler por día (24 h). Somos flexibles.</p>
+            </div>
+          </li>
+          <li class="chop-how__item" data-reveal>
+            <span class="chop-how__icon" aria-hidden="true">🧊</span>
+            <div class="chop-how__body">
+              <h3 class="chop-how__name">El frío corre por tu cuenta</h3>
+              <p class="chop-how__text">El CO2 va incluido; vos ponés el hielo.</p>
+            </div>
+          </li>
+          <li class="chop-how__item" data-reveal>
+            <span class="chop-how__icon" aria-hidden="true">🛢</span>
+            <div class="chop-how__body">
+              <h3 class="chop-how__name">Tamaños de barril</h3>
+              <p class="chop-how__text">20, 30 o 50 litros, según cuántos sean.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================
+         3 · ¿CUÁNTA CERVEZA NECESITO? — litros → personas
+         Ayuda a decidir. Cálculos a confirmar con el cliente.
+         ============================================ -->
+    <section class="chop-calc" aria-labelledby="chop-calc-title">
+      <div class="wrap">
+        <h2 id="chop-calc-title" class="chop-calc__title" data-reveal>¿Cuánta cerveza necesito?</h2>
+        <div class="chop-calc__grid" data-reveal-group>
+          <div class="chop-calc__card" data-reveal="pop">
+            <span class="chop-calc__liters">20L</span>
+            <span class="chop-calc__people">~40 personas</span>
+          </div>
+          <div class="chop-calc__card" data-reveal="pop">
+            <span class="chop-calc__liters">30L</span>
+            <span class="chop-calc__people">~60 personas</span>
+          </div>
+          <div class="chop-calc__card" data-reveal="pop">
+            <span class="chop-calc__liters">50L</span>
+            <span class="chop-calc__people">~100 personas</span>
+          </div>
+        </div>
+        <p class="chop-note">Cálculos aproximados <span class="chop-ph">[a confirmar con el cliente]</span></p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         4 · PRECIOS — placeholders del backend
+         No hardcodear: los valores $X se reemplazan
+         con los precios que vienen del backend.
+         ============================================ -->
+    <section class="chop-prices" aria-labelledby="chop-prices-title">
+      <div class="wrap">
+        <div class="chop-prices__card" data-reveal>
+          <h2 id="chop-prices-title" class="chop-prices__eyebrow">Precios</h2>
+          <dl class="chop-prices__list">
+            <div class="chop-prices__row">
+              <dt class="chop-prices__item">Alquiler chopera (24 h)</dt>
+              <dd class="chop-prices__value" data-price="chopera-24h">$X</dd>
+            </div>
+            <div class="chop-prices__row">
+              <dt class="chop-prices__item">Barril 20L</dt>
+              <dd class="chop-prices__value" data-price="barril-20l">$X</dd>
+            </div>
+            <div class="chop-prices__row">
+              <dt class="chop-prices__item">Barril 30L</dt>
+              <dd class="chop-prices__value" data-price="barril-30l">$X</dd>
+            </div>
+            <div class="chop-prices__row">
+              <dt class="chop-prices__item">Barril 50L</dt>
+              <dd class="chop-prices__value" data-price="barril-50l">$X</dd>
+            </div>
+          </dl>
+          <p class="chop-note">Precios del backend · se actualizan solos</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         5 · FAQ — acordeón (details/summary, sin JS)
+         Preguntas placeholder: a definir con el cliente.
+         ============================================ -->
+    <section class="chop-faq" aria-labelledby="chop-faq-title">
+      <div class="wrap">
+        <h2 id="chop-faq-title" class="chop-faq__title" data-reveal>Preguntas frecuentes</h2>
+        <div class="chop-faq__list" data-reveal-group>
+
+          <details class="chop-faq__item" data-reveal>
+            <summary class="chop-faq__question">
+              ¿Llevan e instalan?
+              <span class="chop-faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <p class="chop-faq__answer"><span class="chop-ph">[respuesta a definir con el cliente]</span> Ej.: Sí, llevamos la chopera, la instalamos y te dejamos todo funcionando.</p>
+          </details>
+
+          <details class="chop-faq__item" data-reveal>
+            <summary class="chop-faq__question">
+              ¿Con cuánto tiempo reservo?
+              <span class="chop-faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <p class="chop-faq__answer"><span class="chop-ph">[respuesta a definir con el cliente]</span> Ej.: Cuanto antes mejor; escribinos y vemos disponibilidad para tu fecha.</p>
+          </details>
+
+          <details class="chop-faq__item" data-reveal>
+            <summary class="chop-faq__question">
+              ¿Qué pasa si sobra cerveza?
+              <span class="chop-faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <p class="chop-faq__answer"><span class="chop-ph">[respuesta a definir con el cliente]</span> Ej.: Lo conversamos al coordinar el alquiler.</p>
+          </details>
+
+          <details class="chop-faq__item" data-reveal>
+            <summary class="chop-faq__question">
+              ¿A qué zonas llegan?
+              <span class="chop-faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <p class="chop-faq__answer"><span class="chop-ph">[respuesta a definir con el cliente]</span> Ej.: Villa Adelina y alrededores; para otras zonas, consultanos.</p>
+          </details>
+
+        </div>
+        <p class="chop-note">Preguntas placeholder · a definir con el cliente</p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         6 · CTA CIERRE — bloque berenjena
+         Único CTA contextual de la página: pide fecha,
+         lugar y cantidad para que el contacto llegue informado.
+         ============================================ -->
+    <section class="chop-cta chop-cta--eggplant" aria-labelledby="chop-cta-title">
+      <div class="wrap chop-cta__inner" data-reveal>
+        <h2 id="chop-cta-title" class="chop-cta__title">Contanos de tu evento</h2>
+        <p class="chop-cta__text">Decinos fecha, lugar y cuántos son. Te armamos el combo.</p>
+        <div class="chop-cta__row">
+          <a class="btn btn--whatsapp"
+             href="https://wa.me/5491168482209?text=Hola%21%20Quiero%20consultar%20por%20una%20chopera%20para%20un%20evento"
+             target="_blank" rel="noopener noreferrer">
+            <img class="btn__wa-icon" src="assets/iconos/whatsapp.png" alt="" aria-hidden="true" width="512" height="512" decoding="async">
+            Consultar por WhatsApp
+          </a>
+          <img loading="lazy" decoding="async" class="chop-cta__illus" src="assets/ilustraciones/reptil-hero.webp" alt="" aria-hidden="true" width="5616" height="5726">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       FOOTER (idéntico a la Home)
+       ============================================ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <nav class="footer__nav" aria-label="Navegación del pie">
+          <a class="footer__link" href="cervezas.html">Cervezas</a>
+          <a class="footer__link" href="chopera.html">Chopera</a>
+          <a class="footer__link" href="barriles.html">Barriles</a>
+          <a class="footer__link" href="merch.html">Merch</a>
+          <a class="footer__link" href="sobre-nosotros.html">Sobre nosotros</a>
+          <a class="footer__link" href="contacto.html">Contacto</a>
+        </nav>
+        <a class="footer__logo" href="index.html" aria-label="GODUA — Inicio">
+          <img src="assets/logos/godua-completo-blanco.webp" alt="GODUA Cerveza" width="800" height="800" loading="lazy" decoding="async">
+        </a>
+      </div>
+
+      <div class="footer__social">
+        <a href="https://instagram.com/cervezagodua" target="_blank" rel="noopener noreferrer">@cervezagodua</a>
+        <span class="footer__dot" aria-hidden="true">·</span>
+        <a href="https://wa.me/5491168482209" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <span class="footer__dot" aria-hidden="true">·</span>
+        <a href="https://www.google.com/maps/search/?api=1&query=Cerveza%20artesanal%20God%C5%AB%C3%81%20Villa%20Adelina" target="_blank" rel="noopener noreferrer">Maps</a>
+      </div>
+
+      <p class="footer__legal">© 2026 GODUA · Villa Adelina · Beber con moderación</p>
+    </div>
+  </footer>
+
+  <script src="js/js-utils.js?v=6" defer></script>
+
+  <!-- WhatsApp flotante (solo desktop; en mobile sigue dentro del navbar) -->
+  <a class="whatsapp-fab"
+     href="https://wa.me/5491168482209?text=Hola%20GODUA%2C%20quiero%20consultar"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Escribinos por WhatsApp">
+    <img src="assets/iconos/whatsapp.png" alt="WhatsApp" width="512" height="512" decoding="async">
+  </a>
+
+</body>
+</html>

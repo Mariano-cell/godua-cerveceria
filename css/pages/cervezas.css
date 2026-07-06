@@ -1,0 +1,289 @@
+/* ============================================
+   CERVEZAS (portal) — cervezas.html
+   Grilla de universos. Cada card linkea a su detalle.
+   Mobile-first · breakpoint 1024px. Prefijo .cerv-
+   ============================================ */
+
+/* ============================================
+   1 · HERO
+   ============================================ */
+.cerv-hero {
+  padding: var(--spacing-xxl) 0 var(--spacing-xl);
+}
+.cerv-hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+}
+.cerv-hero__illus {
+  flex-shrink: 0;
+  width: 150px;
+  height: auto;
+}
+@media (min-width: 1024px) {
+  .cerv-hero__illus { width: 240px; }
+}
+.cerv-hero__kicker {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--spacing-sm);
+}
+.cerv-hero__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: var(--fs-h1);
+  line-height: 1.02;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-md);
+}
+.cerv-hero__subtitle {
+  font-size: var(--fs-body);
+  color: var(--color-text-soft);
+  margin: 0;
+  max-width: 46ch;
+}
+
+/* ============================================
+   2 · PORTAL — grilla de universos
+   ============================================ */
+.cerv-portal {
+  padding: 0 0 var(--spacing-xxl);
+}
+.cerv-grid {
+  display: grid;
+  grid-template-columns: 1fr;   /* una columna en mobile */
+  gap: var(--spacing-md);
+}
+
+/* Card de universo (toda clickeable) */
+.cerv-card {
+  display: block;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  color: var(--color-text);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cerv-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Bloque del universo (placeholder con gradiente por estilo) */
+.cerv-card__universe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 140px;
+  overflow: hidden;   /* recorta lo que sobrepase el contenedor (ilustraciones y título) */
+  padding: var(--spacing-md);
+  font-size: var(--fs-caption);
+  color: rgba(255, 255, 255, 0.85);
+}
+/* Imagen del nombre del estilo dentro del bloque de universo.
+   contain = no deforma, entra completa; lo que sobra queda como aire. */
+.cerv-card__nombre {
+  position: relative;
+  z-index: 5;
+  max-width: 122%;
+  max-height: 114%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.cerv-card__universe--terra    { background: linear-gradient(120deg, #f2994a, #d64a22); }  /* naranja atardecer */
+.cerv-card__universe--eggplant { background: linear-gradient(120deg, #5b4a7a, #3a2d52); }
+.cerv-card__universe--olive    { background: linear-gradient(120deg, #c98a3c, #8a5a1f); }  /* ámbar dorado (ex-AMBER) */
+.cerv-card__universe--amber    { background: linear-gradient(120deg, #be503c, #804836); }  /* terracota (ex-APA) apenas más claro */
+.cerv-card__universe--dark     { background: linear-gradient(120deg, #3a3330, #201b18); }
+
+/* Fila inferior: nombre + meta (izq) · flecha (der) */
+.cerv-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+.cerv-card__estilo {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h3);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-xs);
+}
+.cerv-card__meta {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--fs-small);
+  color: var(--color-text-soft);
+}
+.cerv-card__meta-label {
+  font-weight: 600;
+  color: var(--color-text);
+}
+.cerv-card__ph {
+  color: var(--color-text-muted);
+  font-style: italic;
+  font-weight: 400;
+}
+.cerv-card__arrow {
+  font-size: 20px;
+  color: var(--color-text-soft);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.cerv-card:hover .cerv-card__arrow {
+  transform: translateX(3px);
+}
+
+.cerv-note {
+  font-size: var(--fs-caption);
+  color: var(--color-text-muted);
+  margin: var(--spacing-lg) 0 0;
+}
+
+/* Desktop: grilla de 2-3 columnas */
+@media (min-width: 640px) {
+  .cerv-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .cerv-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ============================================
+   3 · CTA WHATSAPP — cierre (bloque oliva)
+   ============================================ */
+.cerv-cta {
+  padding: var(--spacing-xxl) 0;
+  color: #ffffff;
+}
+.cerv-cta--olive { background-color: var(--color-olive); }
+.cerv-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;     /* frase contra la derecha */
+  gap: var(--spacing-lg);
+  text-align: right;
+}
+
+/* Fila inferior: ilustración (izq) + botón (der) */
+.cerv-cta__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  width: 100%;
+}
+/* Bajar un poco el botón dentro de la fila */
+.cerv-cta__row .btn {
+  align-self: flex-end;
+  margin-bottom: var(--spacing-md);
+}
+.cerv-cta__illus {
+  flex-shrink: 0;
+  width: 150px;
+  height: auto;
+}
+@media (min-width: 1024px) {
+  .cerv-cta__illus { width: 200px; }
+}
+.cerv-cta__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  color: #ffffff;      /* sobre bloque oliva sólido */
+  margin: 0;
+}
+
+/* Ajustes individuales del título ilustrado por estilo */
+.cerv-card__universe--terra .cerv-card__nombre { max-width: 140%; max-height: 130%; }               /* APA: más grande */
+.cerv-card__universe--eggplant .cerv-card__nombre { transform: translateY(12px); }                  /* IPA: más abajo */
+.cerv-card__universe--amber .cerv-card__nombre { max-width: 132%; max-height: 124%; }                /* AMBER: levemente más grande */
+.cerv-card__universe--dark .cerv-card__nombre { max-width: 140%; max-height: 130%; transform: translateY(14px); } /* FABULOSA: más grande y más abajo */
+.cerv-card__universe--olive .cerv-card__nombre { transform: translateY(10px); }                     /* CHISPITA: un poco más abajo */
+
+/* ============================================
+   Ilustraciones de universo (posicionadas con el editor)
+   ============================================ */
+.cerv-card__universe { position: relative; }  /* refuerzo: ancla para las ilustraciones */
+
+.u-ill {
+  position: absolute;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;   /* decorativas: no interfieren con el click de la card */
+  z-index: 6;             /* adelante del nombre (como en el editor) */
+}
+.u-ill.is-flipped { transform: scaleX(-1); }
+
+/* --- APA (TERRA) --- posiciones del editor --- */
+
+/* --- IPA (EGGPLANT) --- posiciones del editor (sin ipa-4) --- */
+
+/* --- BLONDE (OLIVE) --- posiciones del editor --- */
+.cerv-card__universe--olive .u-ill-1{left:1.5%;top:4.3%;width:18.8%;}
+.cerv-card__universe--olive .u-ill-2{left:5.9%;top:52.9%;width:18.8%;}
+.cerv-card__universe--olive .u-ill-3{left:80.9%;top:8.6%;width:13.5%;}
+.cerv-card__universe--olive .u-ill-4{left:40.6%;top:-5.7%;width:27.6%;}
+.cerv-card__universe--olive .u-ill-5{left:72.4%;top:34.3%;width:25.9%;}
+
+/* --- AMBER --- posiciones del editor (sin amber-3/8/9: quedaron afuera) --- */
+
+/* --- PORTER (DARK) --- posiciones del editor --- */
+
+/* === Ilustraciones · posiciones MOBILE (base) === */
+.cerv-card__universe--amber .u-ill-4{left:44.0%;top:-11.4%;width:29.2%;}
+.cerv-card__universe--amber .u-ill-6{left:-2.6%;top:30.7%;width:34.7%;}
+.cerv-card__universe--amber .u-ill-7{left:64.7%;top:15.0%;width:37.9%;}
+.cerv-card__universe--eggplant .u-ill-1{left:9.6%;top:65.0%;width:11.7%;}
+.cerv-card__universe--eggplant .u-ill-2{left:74.3%;top:37.1%;width:29.2%;}
+.cerv-card__universe--dark .u-ill-1{left:18.1%;top:7.1%;width:18.7%;}
+.cerv-card__universe--dark .u-ill-2{left:56.6%;top:40.7%;width:32.9%;}
+.cerv-card__universe--dark .u-ill-3{left:98.3%;top:79.3%;width:18.7%;}
+.cerv-card__universe--dark .u-ill-4{left:72.3%;top:37.9%;width:38.2%;}
+.cerv-card__universe--dark .u-ill-5{left:-7.6%;top:13.6%;width:39.9%;}
+.cerv-card__universe--dark .u-ill-6{left:64.1%;top:45.7%;width:18.7%;}
+.cerv-card__universe--dark .u-ill-7{left:35.0%;top:-6.4%;width:24.2%;}
+.cerv-card__universe--terra .u-ill-1{left:75.2%;top:57.9%;width:25.9%;}
+.cerv-card__universe--terra .u-ill-2{left:15.5%;top:7.9%;width:11.7%;}
+.cerv-card__universe--terra .u-ill-3{left:74.3%;top:7.9%;width:18.7%;}
+.cerv-card__universe--terra .u-ill-4{left:-13.7%;top:92.1%;width:18.7%;}
+.cerv-card__universe--terra .u-ill-5{left:57.4%;top:114.3%;width:11.7%;}
+.cerv-card__universe--terra .u-ill-6{left:-9.6%;top:26.4%;width:9.9%;}
+.cerv-card__universe--terra .u-ill-7{left:1.5%;top:39.3%;width:18.7%;}
+
+/* === Ilustraciones · posiciones DESKTOP === */
+@media (min-width: 1024px) {
+  .cerv-card__universe--terra .u-ill-1{left:72.9%;top:1.4%;width:25.9%;}
+  .cerv-card__universe--terra .u-ill-2{left:17.9%;top:-3.6%;width:18.8%;}
+  .cerv-card__universe--terra .u-ill-3{left:76.8%;top:53.6%;width:18.8%;}
+  .cerv-card__universe--terra .u-ill-4{left:2.9%;top:2.9%;width:18.8%;}
+  .cerv-card__universe--terra .u-ill-5{left:0.0%;top:69.3%;width:11.8%;}
+  .cerv-card__universe--terra .u-ill-6{left:3.5%;top:42.9%;width:18.8%;}
+  .cerv-card__universe--terra .u-ill-7{left:59.1%;top:-5.7%;width:18.8%;}
+  .cerv-card__universe--dark .u-ill-1{left:18.2%;top:7.1%;width:18.8%;}
+  .cerv-card__universe--dark .u-ill-2{left:56.5%;top:40.7%;width:32.9%;}
+  .cerv-card__universe--dark .u-ill-3{left:98.2%;top:79.3%;width:18.8%;}
+  .cerv-card__universe--dark .u-ill-4{left:72.6%;top:-6.4%;width:38.2%;}
+  .cerv-card__universe--dark .u-ill-5{left:-2.4%;top:-0.7%;width:29.4%;}
+  .cerv-card__universe--dark .u-ill-6{left:64.1%;top:45.7%;width:18.8%;}
+  .cerv-card__universe--dark .u-ill-7{left:4.1%;top:52.9%;width:24.1%;}
+  .cerv-card__universe--eggplant .u-ill-1{left:9.7%;top:65.0%;width:11.8%;}
+  .cerv-card__universe--eggplant .u-ill-2{left:80.3%;top:0.0%;width:18.8%;}
+  .cerv-card__universe--amber .u-ill-4{left:55.6%;top:0.7%;width:18.8%;}
+  .cerv-card__universe--amber .u-ill-6{left:-3.2%;top:30.7%;width:32.9%;}
+  .cerv-card__universe--amber .u-ill-7{left:52.4%;top:62.9%;width:18.8%;}
+} /* fin posiciones desktop */
+
+/* Icono de WhatsApp del CTA más grande (solo en esta página) */
+.page-cervezas .btn__wa-icon {
+  width: 30px;
+  height: 30px;
+}

@@ -1,0 +1,291 @@
+/* ============================================
+   CONTACTO (contacto.html) — estilos por sección
+   Mobile-first · breakpoint 1024px.
+   Jerarquía por canal real: WhatsApp protagónico.
+   Prefijo .cont- para no colisionar con otras páginas.
+   ============================================ */
+
+/* ============================================
+   1 · HERO
+   ============================================ */
+.cont-hero {
+  padding: var(--spacing-xxl) 0 var(--spacing-xl);
+}
+.cont-hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+}
+.cont-hero__kicker {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--spacing-sm);
+}
+.cont-hero__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: var(--fs-h1);
+  line-height: 1.02;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-md);
+}
+.cont-hero__subtitle {
+  font-size: var(--fs-body);
+  color: var(--color-text-soft);
+  margin: 0;
+  max-width: 42ch;
+}
+.cont-hero__illus {
+  order: 2;
+  flex-shrink: 0;
+  width: 130px;      /* ilustración vertical; alto proporcional */
+  height: auto;
+}
+@media (min-width: 1024px) {
+  .cont-hero__illus { width: 240px; }
+}
+
+/* ============================================
+   2 · WHATSAPP — canal protagónico (verde)
+   ============================================ */
+.cont-wa {
+  padding: 0 0 var(--spacing-xl);
+}
+.cont-wa__card {
+  background-color: var(--color-header);   /* mismo salvia que el navbar */
+  color: var(--color-text);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+}
+.cont-wa__eyebrow {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-text-soft);
+  margin: 0 0 var(--spacing-xs);
+}
+.cont-wa__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-xs);
+}
+.cont-wa__phone {
+  font-size: var(--fs-body);
+  color: var(--color-text-soft);
+  margin: 0 0 var(--spacing-lg);
+}
+/* Botón: verde WhatsApp con logo (resalta sobre el salvia) */
+.cont-wa__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background-color: var(--color-whatsapp);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: var(--fs-body);
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--radius-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cont-wa__btn-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+}
+.cont-wa__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   3 · OTROS CANALES — Instagram / Web
+   ============================================ */
+.cont-channels {
+  padding: 0 0 var(--spacing-xxl);
+}
+.cont-channels__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+.cont-channel {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cont-channel:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.cont-channel__icon {
+  flex-shrink: 0;
+  color: var(--color-olive);
+}
+.cont-channel__icon svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+.cont-channel__name {
+  display: block;
+  font-weight: 700;
+  font-size: var(--fs-body);
+  line-height: 1.2;
+}
+.cont-channel__sub {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--fs-small);
+  color: var(--color-text-soft);
+  line-height: 1.2;
+}
+@media (min-width: 1024px) {
+  .cont-channels__list { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ============================================
+   4 · DÓNDE ESTAMOS — mapa + datos
+   ============================================ */
+.cont-where {
+  padding: var(--spacing-xxl) 0;
+}
+.cont-where__kicker {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--spacing-sm);
+}
+.cont-where__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.02;
+}
+
+/* Primera parte del título con características de párrafo común */
+.cont-where__title-pre {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--color-text-soft);
+}
+
+/* Header: título (izq) + ilustración (der), arriba del mapa */
+.cont-where__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+.cont-where__map {
+  height: 240px;
+  border: 1.5px solid var(--color-text);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.cont-where__map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.cont-where__info {
+  margin-top: var(--spacing-lg);
+}
+.cont-where__place {
+  font-size: var(--fs-body);
+  margin: 0 0 var(--spacing-xs);
+}
+.cont-where__hours {
+  font-size: var(--fs-small);
+  color: var(--color-text-soft);
+  margin: 0 0 var(--spacing-xs);
+}
+.cont-where__ph {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+.cont-where__maps {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-eggplant);
+}
+.cont-where__maps:hover {
+  text-decoration: underline;
+}
+@media (min-width: 1024px) {
+  .cont-where__inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--spacing-xxl);
+    align-items: center;
+  }
+  .cont-where__map { height: 100%; min-height: 260px; }
+  .cont-where__info { margin-top: 0; }
+}
+
+/* ============================================
+   5 · ENVÍOS Y RETIRO — bloque oliva
+   ============================================ */
+.cont-shipping {
+  padding: var(--spacing-xxl) 0;
+  color: #ffffff;
+}
+.cont-shipping--olive { background-color: var(--color-olive); }
+.cont-shipping__eyebrow {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+  margin: 0 0 var(--spacing-sm);
+}
+.cont-shipping__text {
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 60ch;
+}
+
+/* Fila: ilustración (izq) + eyebrow y frase (der) */
+.cont-shipping__head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: var(--spacing-lg);
+}
+.cont-shipping__illus {
+  flex-shrink: 0;
+  width: 150px;
+  height: auto;
+  transform: scaleX(-1);   /* espejado horizontal (eje X) */
+}
+.cont-shipping__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  line-height: 1.02;   /* mismo interlineado que el título del hero de la home */
+  color: #ffffff;      /* sobre bloque oliva sólido */
+  margin: 0;
+}
+
+/* Ilustración OVNI a la derecha del título de la sección */
+.cont-where__illus {
+  flex-shrink: 0;
+  width: 140px;
+  height: auto;
+}

@@ -1,0 +1,35 @@
+/* ============================================
+   Utilidades compartidas entre páginas
+   (contenedor centrado + caja placeholder)
+   ============================================ */
+
+/* Contenedor de ancho del sitio, con el margen estándar */
+.wrap {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--margen-A-mobile);
+}
+@media (min-width: 1024px) {
+  .wrap { padding: 0 var(--margen-A-desktop); }
+}
+
+/* Salto de linea que solo existe en desktop.
+   En mobile no renderiza: el texto fluye igual que siempre. */
+.br-desktop { display: none; }
+@media (min-width: 1024px) {
+  .br-desktop { display: inline; }
+}
+
+/* Caja placeholder punteada (imágenes/mapas pendientes) */
+.illus-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1.5px dashed #b8b5ac;
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+  line-height: 1.3;
+  padding: var(--spacing-md);
+}

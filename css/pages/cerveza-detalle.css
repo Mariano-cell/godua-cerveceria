@@ -1,0 +1,192 @@
+/* ============================================
+   DETALLE DE CERVEZA — CSS COMPARTIDO por las 5 páginas
+   (cervezas/apacalipsis.html, ipa, blonde, amber, porter)
+   Cada página cambia: gradiente del universo (modificador),
+   imagen del nombre, relato, datos y CTA.
+   Mobile-first · breakpoints 640px / 1024px.
+   Prefijo .det- para no colisionar con otras páginas.
+   ============================================ */
+
+/* ---------- Utilidades ---------- */
+.det-note {
+  font-size: var(--fs-caption);
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+.det-ph {
+  color: var(--color-text-muted);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ============================================
+   1 · VOLVER + HERO DE UNIVERSO
+   ============================================ */
+.det-back {
+  display: inline-block;
+  margin: var(--spacing-lg) 0 var(--spacing-md);
+  font-size: var(--fs-small);
+  color: var(--color-text-soft);
+}
+.det-back:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+.det-hero {
+  padding: 0 0 var(--spacing-xl);
+}
+/* Bloque del universo: gradiente por estilo (como el portal),
+   la ilustración grande entra acá cuando exista. */
+.det-hero__universe {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 2421 / 1473;   /* proporción de las portadas */
+}
+/* Portada del universo: cubre todo el bloque */
+.det-hero__portada {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gradientes de universo (mismos que el portal de cervezas) */
+.det-hero__universe--terra    { background: linear-gradient(120deg, #a63d2f, #6b3a2a); }
+.det-hero__universe--eggplant { background: linear-gradient(120deg, #5b4a7a, #3a2d52); }
+.det-hero__universe--olive    { background: linear-gradient(120deg, #6b7245, #4a5230); }
+.det-hero__universe--amber    { background: linear-gradient(120deg, #c98a3c, #8a5a1f); }
+.det-hero__universe--dark     { background: linear-gradient(120deg, #3a3330, #201b18); }
+
+/* ============================================
+   2 · RELATO + DATOS TÉCNICOS + PRESENTACIONES
+   ============================================ */
+.det-info {
+  padding: 0 0 var(--spacing-xxl);
+}
+.det-info__kicker {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--spacing-sm);
+}
+.det-info__story {
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-lg);
+  max-width: 62ch;
+}
+
+/* Card de datos técnicos (ABV / IBU / notas) */
+.det-data {
+  display: flex;
+  justify-content: space-around;
+  gap: var(--spacing-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  margin: 0 0 var(--spacing-xs);
+  text-align: center;
+}
+.det-data__label {
+  font-size: var(--fs-caption);
+  color: var(--color-text-muted);
+  margin: 0;
+  order: 2;             /* valor arriba, etiqueta abajo (como el wireframe) */
+}
+.det-data__item {
+  display: flex;
+  flex-direction: column;
+}
+.det-data__value {
+  font-weight: 700;
+  font-size: var(--fs-body);
+  color: var(--color-text);
+  margin: 0;
+  order: 1;
+}
+@media (min-width: 1024px) {
+  .det-data { max-width: 480px; }
+}
+
+/* Presentaciones + precio: texto (izq) + ilustración (der) */
+.det-buy {
+  margin-top: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+.det-buy__illus {
+  flex-shrink: 0;
+  width: 140px;
+  height: auto;
+  transform: scaleX(-1);   /* espejada: que mire hacia el texto */
+}
+@media (min-width: 1024px) {
+  .det-buy { justify-content: flex-start; }
+  .det-buy__illus { width: 200px; }
+}
+.det-buy__label {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  margin: 0 0 var(--spacing-xs);
+}
+.det-buy__formats {
+  font-weight: 600;
+  font-size: var(--fs-body);
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-xs);
+}
+.det-buy__price {
+  font-weight: 700;
+  font-size: var(--fs-body);
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* ============================================
+   3 · CTA CIERRE — bloque violeta (berenjena)
+   ============================================ */
+.det-cta {
+  padding: var(--spacing-xxl) 0;
+  color: #ffffff;
+}
+.det-cta--eggplant { background-color: var(--color-eggplant); }   /* violeta, igual en los 5 detalles */
+.det-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* título y texto a la izquierda */
+  text-align: left;
+}
+.det-cta__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  line-height: 1.02;
+  color: #ffffff;      /* sobre bloque de color sólido */
+  margin: 0 0 var(--spacing-sm);
+}
+.det-cta__text {
+  font-size: var(--fs-body);
+  opacity: 0.88;
+  margin: 0 0 var(--spacing-lg);
+  max-width: 46ch;
+}
+
+/* Fila: ilustración (izq) + botón (der) */
+.det-cta__row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+.det-cta__illus {
+  flex-shrink: 0;
+  width: 90px;
+  height: auto;
+}
+@media (min-width: 1024px) {
+  .det-cta__illus { width: 130px; }
+}

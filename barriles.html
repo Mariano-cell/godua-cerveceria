@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Barriles GODUA para bares, restaurantes y eventos. Cerveza artesanal mayorista de Villa Adelina: 5 estilos en barriles de 20, 30 y 50 litros, trato directo con quienes la producen.">
+  <title>Barriles mayorista · GODUA Cerveza Artesanal</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components/navbar.css?v=12">
+  <link rel="stylesheet" href="css/components/button.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/animations.css?v=12">
+  <link rel="stylesheet" href="css/pages/barriles.css">
+</head>
+<body class="page-barriles">
+
+  <!-- ============================================
+       NAVBAR (idéntico a la Home; "Barriles" activo)
+       ============================================ -->
+  <header>
+    <nav class="navbar" aria-label="Navegación principal">
+      <div class="navbar__inner">
+        <a class="navbar__logo" href="index.html" aria-label="GODUA — Inicio">
+          <img src="assets/logos/GODUA-solo-web.png" alt="GODUA" width="1000" height="283" decoding="async">
+        </a>
+
+        <input type="checkbox" id="nav-toggle" class="navbar__toggle-input">
+        <ul class="navbar__links">
+          <li><a class="navbar__link" href="cervezas.html">Cervezas</a></li>
+          <li><a class="navbar__link" href="chopera.html">Chopera</a></li>
+          <li><a class="navbar__link" href="barriles.html" aria-current="page">Barriles</a></li>
+          <li><a class="navbar__link" href="merch.html">Merch</a></li>
+          <li><a class="navbar__link" href="sobre-nosotros.html">Sobre nosotros</a></li>
+          <li><a class="navbar__link" href="contacto.html">Contacto</a></li>
+        </ul>
+
+        <div class="navbar__actions">
+          <a class="navbar__whatsapp"
+             href="https://wa.me/5491168482209?text=Hola%20GODUA%2C%20quiero%20consultar"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Escribinos por WhatsApp">
+            <img src="assets/iconos/whatsapp.png" alt="WhatsApp" width="512" height="512" decoding="async">
+          </a>
+          <label for="nav-toggle" class="navbar__toggle" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+          </label>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================
+         1 · HERO — tono comercial (B2B, no de consumo)
+         ============================================ -->
+    <section class="barr-hero" aria-labelledby="barr-title">
+      <div class="wrap barr-hero__inner">
+        <div class="barr-hero__text">
+          <p class="barr-hero__kicker anim-up">Mayorista</p>
+          <h1 class="barr-hero__title anim-up anim-d1" id="barr-title">Sumá GODUA a tu barra</h1>
+          <p class="barr-hero__subtitle anim-up anim-d2">Cerveza artesanal con salida propia. Para bares, restaurantes y eventos que quieren vender calidad.</p>
+        </div>
+        <!-- Ilustración del hero: reptil guerrero (mira hacia el texto) -->
+        <img class="barr-hero__illus anim-up anim-d3" src="assets/ilustraciones/guerreropng.webp" alt="" aria-hidden="true" width="4809" height="4172" decoding="async" fetchpriority="high">
+      </div>
+    </section>
+
+    <!-- ============================================
+         2 · ¿POR QUÉ SUMARNOS? — bloque berenjena
+         Argumentos de negocio, no de consumo.
+         ============================================ -->
+    <section class="barr-why barr-why--eggplant" aria-labelledby="barr-why-title">
+      <div class="wrap">
+        <div class="barr-why__head" data-reveal>
+          <img loading="lazy" decoding="async" class="barr-why__illus" src="assets/ilustraciones/serpiete.webp" alt="" aria-hidden="true" width="548" height="305">
+          <h2 id="barr-why-title" class="barr-why__title">¿Por qué sumarnos?</h2>
+        </div>
+        <ul class="barr-why__list" data-reveal-group>
+          <li class="barr-why__item" data-reveal>
+            <span class="barr-why__icon" aria-hidden="true">📈</span>
+            <div class="barr-why__body">
+              <h3 class="barr-why__name">Marca con tirón</h3>
+              <p class="barr-why__text">Identidad fuerte que la gente reconoce y pide.</p>
+            </div>
+          </li>
+          <li class="barr-why__item" data-reveal>
+            <span class="barr-why__icon" aria-hidden="true">🤝</span>
+            <div class="barr-why__body">
+              <h3 class="barr-why__name">Trato directo</h3>
+              <p class="barr-why__text">Hablás con quienes la producen. Sin intermediarios.</p>
+            </div>
+          </li>
+          <li class="barr-why__item" data-reveal>
+            <span class="barr-why__icon" aria-hidden="true">🚚</span>
+            <div class="barr-why__body">
+              <h3 class="barr-why__name">Logística según volumen</h3>
+              <p class="barr-why__text">Cuanto más pedís, más lejos llegamos.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================
+         3 · FORMATOS DISPONIBLES — 20/30/50L
+         Precios del backend: no hardcodear ($X placeholder).
+         ============================================ -->
+    <section class="barr-formats" aria-labelledby="barr-formats-title">
+      <div class="wrap">
+        <h2 id="barr-formats-title" class="barr-formats__title" data-reveal>Formatos disponibles</h2>
+        <div class="barr-formats__list" data-reveal-group>
+          <div class="barr-format" data-reveal="pop">
+            <div class="barr-format__text">
+              <h3 class="barr-format__name">Barril 20L</h3>
+              <p class="barr-format__use">ideal para empezar / rotar estilos</p>
+            </div>
+            <p class="barr-format__price" data-price="mayorista-barril-20l">$X</p>
+          </div>
+          <div class="barr-format" data-reveal="pop">
+            <div class="barr-format__text">
+              <h3 class="barr-format__name">Barril 30L</h3>
+              <p class="barr-format__use">el más pedido</p>
+            </div>
+            <p class="barr-format__price" data-price="mayorista-barril-30l">$X</p>
+          </div>
+          <div class="barr-format" data-reveal="pop">
+            <div class="barr-format__text">
+              <h3 class="barr-format__name">Barril 50L</h3>
+              <p class="barr-format__use">para alta rotación</p>
+            </div>
+            <p class="barr-format__price" data-price="mayorista-barril-50l">$X</p>
+          </div>
+        </div>
+        <p class="barr-formats__styles" data-reveal>5 estilos: Blonde · Porter · Amber · APA · IPA. <span class="barr-note">Precios mayoristas del backend · se actualizan solos</span></p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         4 · YA CONFÍAN EN NOSOTROS — prueba social
+         + link a Sobre Nosotros como prueba de seriedad.
+         ============================================ -->
+    <section class="barr-trust" aria-labelledby="barr-trust-title">
+      <div class="wrap">
+        <div class="barr-trust__card" data-reveal>
+          <h2 id="barr-trust-title" class="barr-trust__eyebrow">Ya confían en nosotros</h2>
+          <ul class="barr-trust__list">
+            <li class="barr-trust__chip">La Teca</li>
+            <li class="barr-trust__chip">Beltrán</li>
+            <li class="barr-trust__chip">GBA</li>
+          </ul>
+          <p class="barr-note">Lista a confirmar con el cliente</p>
+          <a class="barr-trust__link" href="sobre-nosotros.html">Conocé nuestra historia →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         5 · CTA CIERRE — bloque oliva
+         Único CTA contextual de la página (B2B).
+         ============================================ -->
+    <section class="barr-cta barr-cta--olive" aria-labelledby="barr-cta-title">
+      <div class="wrap barr-cta__inner" data-reveal>
+        <h2 id="barr-cta-title" class="barr-cta__title">Hablemos de números</h2>
+        <p class="barr-cta__text">Contanos qué tenés y armamos una propuesta para tu negocio.</p>
+        <div class="barr-cta__row">
+          <a class="btn btn--whatsapp"
+             href="https://wa.me/5491168482209?text=Hola%21%20Tengo%20un%20negocio%20y%20quiero%20consultar%20por%20barriles%20mayoristas"
+             target="_blank" rel="noopener noreferrer">
+            <img class="btn__wa-icon" src="assets/iconos/whatsapp.png" alt="" aria-hidden="true" width="512" height="512" decoding="async">
+            Consultar mayorista por WhatsApp
+          </a>
+          <img loading="lazy" decoding="async" class="barr-cta__illus" src="assets/ilustraciones/brujocapa.webp" alt="" aria-hidden="true" width="1863" height="3045">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       FOOTER (idéntico a la Home)
+       ============================================ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <nav class="footer__nav" aria-label="Navegación del pie">
+          <a class="footer__link" href="cervezas.html">Cervezas</a>
+          <a class="footer__link" href="chopera.html">Chopera</a>
+          <a class="footer__link" href="barriles.html">Barriles</a>
+          <a class="footer__link" href="merch.html">Merch</a>
+          <a class="footer__link" href="sobre-nosotros.html">Sobre nosotros</a>
+          <a class="footer__link" href="contacto.html">Contacto</a>
+        </nav>
+        <a class="footer__logo" href="index.html" aria-label="GODUA — Inicio">
+          <img src="assets/logos/godua-completo-blanco.webp" alt="GODUA Cerveza" width="800" height="800" loading="lazy" decoding="async">
+        </a>
+      </div>
+
+      <div class="footer__social">
+        <a href="https://instagram.com/cervezagodua" target="_blank" rel="noopener noreferrer">@cervezagodua</a>
+        <span class="footer__dot" aria-hidden="true">·</span>
+        <a href="https://wa.me/5491168482209" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <span class="footer__dot" aria-hidden="true">·</span>
+        <a href="https://www.google.com/maps/search/?api=1&query=Cerveza%20artesanal%20God%C5%AB%C3%81%20Villa%20Adelina" target="_blank" rel="noopener noreferrer">Maps</a>
+      </div>
+
+      <p class="footer__legal">© 2026 GODUA · Villa Adelina · Beber con moderación</p>
+    </div>
+  </footer>
+
+  <script src="js/js-utils.js?v=12" defer></script>
+
+  <!-- WhatsApp flotante (solo desktop; en mobile sigue dentro del navbar) -->
+  <a class="whatsapp-fab"
+     href="https://wa.me/5491168482209?text=Hola%20GODUA%2C%20quiero%20consultar"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Escribinos por WhatsApp">
+    <img src="assets/iconos/whatsapp.png" alt="WhatsApp" width="512" height="512" decoding="async">
+  </a>
+
+</body>
+</html>

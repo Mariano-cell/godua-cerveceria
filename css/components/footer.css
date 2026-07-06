@@ -1,0 +1,164 @@
+/* ============================================
+   Componente: FOOTER
+   - Fondo oscuro (--color-text = #2b2b2b).
+   - Texto claro: ES la excepción a la regla de
+     contraste (claro solo sobre bloque de color sólido).
+   Mobile-first · breakpoint 1024px.
+
+   Estructura:
+     .footer__inner  (columna)
+       .footer__top       → brand (logo + tagline) · nav · contacto
+       .footer__wordmark  → "GODUA" gigante, decorativo
+       .footer__legal     → línea legal
+   ============================================ */
+
+.footer {
+  background-color: var(--color-text);
+  color: #cfcdc6;
+  padding: var(--spacing-xxl) var(--margen-A-mobile) var(--spacing-lg);
+  overflow: hidden; /* el wordmark gigante no debe generar scroll lateral */
+}
+
+.footer__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+/* ---------- Bloque superior: brand · nav · contacto ---------- */
+/* Mobile: apilados en columna. Desktop: tres columnas. */
+.footer__top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+/* ---------- Brand: logo + tagline ---------- */
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+.footer__logo {
+  display: inline-flex;
+  width: fit-content;
+}
+.footer__logo img {
+  height: 120px;
+  width: auto;
+}
+.footer__tagline {
+  font-size: var(--fs-small);
+  color: #8a8a82;
+  max-width: 260px;
+}
+
+/* ---------- Títulos de columna ---------- */
+.footer__heading {
+  font-size: var(--fs-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #8a8a82;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ---------- Navegación ---------- */
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+}
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+.footer__link {
+  color: #cfcdc6;
+  font-size: var(--fs-small);
+  transition: color 0.2s ease;
+  width: fit-content;
+}
+.footer__link:hover {
+  color: #ffffff;
+}
+
+/* ---------- Contacto / redes ---------- */
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+}
+.footer__contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+.footer__contact-links a {
+  color: #cfcdc6;
+  font-size: var(--fs-small);
+  transition: color 0.2s ease;
+  width: fit-content;
+}
+.footer__contact-links a:hover {
+  color: #ffffff;
+}
+
+/* ---------- Wordmark gigante (decorativo) ---------- */
+/* Texto enorme y muy tenue que cierra la página con marca. */
+.footer__wordmark {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(64px, 16vw, 240px);
+  line-height: 0.85;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.07);
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+  margin-top: var(--spacing-md);
+}
+
+/* ---------- Línea legal ---------- */
+.footer__legal {
+  font-size: var(--fs-caption);
+  color: #8a8a82;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: var(--spacing-lg);
+}
+
+/* ============================================
+   Desktop (>= 1024px)
+   Tres columnas: brand (izq) · nav (centro) · contacto (der)
+   + wordmark gigante + legal.
+   ============================================ */
+@media (min-width: 1024px) {
+  .footer {
+    padding: var(--spacing-xxxl) var(--margen-A-desktop) var(--spacing-lg);
+  }
+
+  .footer__top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-xxxl);
+  }
+
+  .footer__logo img { height: 110px; }
+
+  /* Nav en dos columnas para que no quede una tira larga */
+  .footer__links {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    column-gap: var(--spacing-xxl);
+    row-gap: var(--spacing-sm);
+  }
+
+  .footer__legal {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+}

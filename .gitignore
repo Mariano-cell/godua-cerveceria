@@ -1,0 +1,14 @@
+.DS_Store
+dist/
+
+# Working docs and internal project material
+AGENTS.md
+docs/
+demos/
+GODUA_wireframes.html
+README_ENTREGA.txt
+editor-movil.html
+editor-universos.html
+index.html.bak
+titulo-fabulosa-porter.png
+titulo-fabulosa-porter-transparente.png

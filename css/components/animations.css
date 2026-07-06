@@ -1,0 +1,71 @@
+/* ============================================
+   GODUA — Animaciones (entrada + scroll reveal)
+
+   Uso:
+   1 · ENTRADA AL CARGAR (hero): clases en el HTML
+       .anim-fade         → fade simple
+       .anim-up           → fade + sube 16px
+       .anim-up-flip      → igual, para elementos espejados con scaleX(-1)
+       .anim-d1 / d2 / d3 → delays de la cascada (0.15s / 0.3s / 0.45s)
+
+   2 · SCROLL REVEAL: atributos en el HTML + initScrollReveal() (js-utils.js)
+       data-reveal          → fade + sube al entrar al viewport
+       data-reveal="left"   → entra desde la izquierda
+       data-reveal="right"  → entra desde la derecha
+       data-reveal="pop"    → fade + escala sutil (cards, chips)
+       data-reveal-group    → en el CONTENEDOR: los hijos animan en cascada
+
+   Si JS falla, no se oculta nada (la clase .js-anim la pone el JS).
+   Respeta prefers-reduced-motion.
+   ============================================ */
+
+/* --- 1 · Entrada al cargar --- */
+@keyframes anim-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes anim-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+/* Variante para elementos espejados: mantiene el scaleX(-1) al terminar */
+@keyframes anim-up-flip {
+  from { opacity: 0; transform: translateY(16px) scaleX(-1); }
+  to   { opacity: 1; transform: scaleX(-1); }
+}
+
+.anim-fade    { animation: anim-fade 0.6s ease-out both; }
+.anim-up      { animation: anim-up 0.5s ease-out both; }
+.anim-up-flip { animation: anim-up-flip 0.5s ease-out both; }
+
+/* Delays de la cascada */
+.anim-d1 { animation-delay: 0.15s; }
+.anim-d2 { animation-delay: 0.3s; }
+.anim-d3 { animation-delay: 0.45s; }
+
+/* --- 2 · Scroll reveal ---
+   Estado inicial oculto SOLO si el JS agregó .js-anim al <html>. */
+.js-anim [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition-delay: var(--reveal-delay, 0s);
+}
+.js-anim [data-reveal="left"]  { transform: translateX(-18px); }
+.js-anim [data-reveal="right"] { transform: translateX(18px); }
+.js-anim [data-reveal="pop"]   { transform: scale(0.94); }
+
+.js-anim [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Accesibilidad: sin movimiento si el usuario lo pidió --- */
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade, .anim-up, .anim-up-flip { animation: none; }
+  .js-anim [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
