@@ -12,9 +12,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
   <link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/fonts.css?v=15">
 
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/reset.css">
@@ -76,7 +74,18 @@
     <section class="det-hero" aria-labelledby="det-title">
       <div class="wrap">
         <div class="det-hero__universe det-hero__universe--terra">
-          <img fetchpriority="high" decoding="async" class="det-hero__portada" src="../assets/ilustraciones/pag-catalogo-cervezas/portadas/ipa.webp" alt="Portada del universo CONSPIRANOICA: reptiles, pirámides y conspiraciones" width="2421" height="1476">
+          <img fetchpriority="high"
+               decoding="async"
+               class="det-hero__portada"
+               src="../assets/ilustraciones/pag-catalogo-cervezas/portadas/ipa.webp"
+               srcset="../assets/ilustraciones/pag-catalogo-cervezas/portadas/ipa-640.webp 640w,
+                       ../assets/ilustraciones/pag-catalogo-cervezas/portadas/ipa-960.webp 960w,
+                       ../assets/ilustraciones/pag-catalogo-cervezas/portadas/ipa-1400.webp 1400w,
+                       ../assets/ilustraciones/pag-catalogo-cervezas/portadas/ipa.webp 1800w"
+               sizes="100vw"
+               alt="Portada del universo CONSPIRANOICA: reptiles, pirámides y conspiraciones"
+               width="1800"
+               height="1098">
           <h1 class="det-hero__title" id="det-title"><span class="sr-only">CONSPIRANOICA</span></h1>
         </div>
       </div>
@@ -148,7 +157,7 @@
       <div class="footer__top">
         <div class="footer__brand">
           <a class="footer__logo" href="../index.html" aria-label="GODUA — Inicio">
-            <img src="../assets/logos/godua-completo-blanco.png" alt="GODUA Cerveza">
+            <img src="../assets/logos/godua-completo-blanco.webp" alt="GODUA Cerveza">
           </a>
         </div>
 

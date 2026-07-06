@@ -94,13 +94,32 @@ function initScrollReveal() {
   const els = document.querySelectorAll('[data-reveal]');
   if (!els.length || !('IntersectionObserver' in window)) return;
 
-  // Recién acá se ocultan los elementos: si el JS falla, todo se ve normal
-  document.documentElement.classList.add('js-anim');
-
   // Grupos con cascada: cada hijo [data-reveal] recibe un delay incremental
   document.querySelectorAll('[data-reveal-group]').forEach(group => {
     group.querySelectorAll('[data-reveal]').forEach((el, i) => {
       el.style.setProperty('--reveal-delay', `${i * 0.1}s`);
+    });
+  });
+
+  const visibleNow = [];
+  const viewportBottom = (window.innerHeight || document.documentElement.clientHeight) - 40;
+
+  els.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < viewportBottom && rect.bottom > 0) {
+      el.classList.add('is-visible');
+      visibleNow.push(el);
+    }
+  });
+
+  // Recién acá se ocultan los elementos: si el JS falla, todo se ve normal.
+  // Los que ya estaban en viewport reciben .is-visible antes para evitar flash.
+  document.documentElement.classList.add('js-anim');
+
+  requestAnimationFrame(() => {
+    visibleNow.forEach(el => {
+      el.removeAttribute('data-reveal');
+      el.style.removeProperty('--reveal-delay');
     });
   });
 
@@ -120,7 +139,10 @@ function initScrollReveal() {
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-  els.forEach(el => observer.observe(el));
+  els.forEach(el => {
+    if (!el.hasAttribute('data-reveal')) return;
+    observer.observe(el);
+  });
 }
 
 // Smart header: el navbar se esconde al scrollear hacia abajo
@@ -166,6 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initAccordions();
   initChoperaCalculator();
   loadPrices();
-  initScrollReveal();
   initSmartNavbar();
+
+  if (document.documentElement.hasAttribute('data-defer-scroll-reveal') &&
+      !document.documentElement.classList.contains('deferred-css-ready')) {
+    document.addEventListener('godua:deferred-css-ready', initScrollReveal, { once: true });
+  } else {
+    initScrollReveal();
+  }
 });

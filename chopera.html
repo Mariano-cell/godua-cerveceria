@@ -12,9 +12,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
   <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/fonts.css?v=15">
 
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/reset.css">
@@ -75,7 +73,18 @@
           <p class="chop-hero__subtitle anim-up anim-d2">¿Cumpleaños, fiesta, evento? Te llevamos la cerveza tirada a donde sea.</p>
         </div>
         <!-- Ilustración del hero: cocodrilo con guitarra -->
-        <img class="chop-hero__illus anim-up-flip anim-d3" src="assets/ilustraciones/eventos.webp" alt="" aria-hidden="true" width="2500" height="2092" decoding="async" fetchpriority="high">
+        <img class="chop-hero__illus anim-up-flip anim-d3"
+             src="assets/ilustraciones/eventos.webp"
+             srcset="assets/ilustraciones/eventos-240.webp 240w,
+                     assets/ilustraciones/eventos-480.webp 480w,
+                     assets/ilustraciones/eventos.webp 840w"
+             sizes="(min-width: 1024px) 260px, 120px"
+             alt=""
+             aria-hidden="true"
+             width="840"
+             height="703"
+             decoding="async"
+             fetchpriority="high">
       </div>
     </section>
 
@@ -256,7 +265,7 @@
       <div class="footer__top">
         <div class="footer__brand">
           <a class="footer__logo" href="index.html" aria-label="GODUA — Inicio">
-            <img src="assets/logos/godua-completo-blanco.png" alt="GODUA Cerveza">
+            <img src="assets/logos/godua-completo-blanco.webp" alt="GODUA Cerveza">
           </a>
         </div>
 
@@ -286,7 +295,7 @@
     </div>
   </footer>
 
-  <script src="js/js-utils.js?v=6" defer></script>
+  <script src="js/js-utils.js?v=15" defer></script>
 
   <!-- WhatsApp flotante (solo desktop; en mobile sigue dentro del navbar) -->
   <a class="whatsapp-fab"

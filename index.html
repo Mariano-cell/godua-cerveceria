@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-defer-scroll-reveal>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,17 +12,491 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
   <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/fonts.css?v=15">
+  <style>
+    :root {
+      --color-bg: #f4f3f0;
+      --color-text: #2b2b2b;
+      --color-text-soft: #6a6a62;
+      --color-text-muted: #8a8a82;
+      --color-olive: #6b7245;
+      --color-eggplant: #5b4a7a;
+      --color-terracotta: #a63d2f;
+      --color-whatsapp: #28a71b;
+      --color-surface: #ffffff;
+      --color-border: #e2e1dc;
+      --color-header: #dce0cd;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Roboto, sans-serif;
+      --fs-h1: 38px;
+      --fs-body: 16px;
+      --spacing-xs: 4px;
+      --spacing-sm: 8px;
+      --spacing-md: 16px;
+      --spacing-lg: 24px;
+      --spacing-xl: 32px;
+      --spacing-xxl: 48px;
+      --spacing-xxxl: 64px;
+      --radius-sm: 4px;
+      --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+      --margen-A-mobile: 14px;
+      --container-max: 1100px;
+      --navbar-height: 80px;
+      --navbar-height-mobile: 60px;
+    }
 
-  <link rel="stylesheet" href="css/variables.css?v=14">
-  <link rel="stylesheet" href="css/reset.css?v=14">
-  <link rel="stylesheet" href="css/components/navbar.css?v=14">
-  <link rel="stylesheet" href="css/components/button.css?v=14">
-  <link rel="stylesheet" href="css/components/footer.css?v=14">
-  <link rel="stylesheet" href="css/components/animations.css?v=14">
-  <link rel="stylesheet" href="css/pages/inicio.css?v=14">
+    @media (min-width: 1024px) {
+      :root {
+        --fs-h1: 44px;
+        --container-max: 100%;
+        --margen-A-desktop: clamp(24px, 3.5vw, 64px);
+      }
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      line-height: 1.6;
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+      color: inherit;
+    }
+
+    button {
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-olive);
+      outline-offset: 2px;
+    }
+
+    header {
+      position: sticky;
+      top: var(--spacing-sm);
+      z-index: 100;
+      margin: var(--spacing-sm) var(--spacing-sm) 0;
+    }
+
+    .navbar {
+      position: relative;
+      background-color: var(--color-header);
+      border: 1px solid var(--color-text);
+      border-radius: var(--radius-sm);
+      transition: transform 0.3s ease;
+    }
+
+    .navbar--hidden {
+      transform: translateY(calc(-100% - var(--spacing-sm)));
+    }
+
+    .navbar__inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--spacing-sm);
+      height: var(--navbar-height-mobile);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--spacing-md);
+    }
+
+    .navbar__logo {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .navbar__logo img {
+      height: 28px;
+      width: auto;
+    }
+
+    .navbar__actions {
+      display: flex;
+      align-items: center;
+      gap: var(--margen-A-mobile);
+    }
+
+    .navbar__whatsapp {
+      display: inline-flex;
+      flex-shrink: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .navbar__whatsapp:hover {
+      opacity: 0.85;
+    }
+
+    .navbar__whatsapp img {
+      width: 36px;
+      height: 36px;
+    }
+
+    .navbar__toggle-input {
+      display: none;
+    }
+
+    .navbar__toggle {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      height: 44px;
+      padding: 10px 0;
+    }
+
+    .navbar__toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: var(--color-text);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .navbar__links {
+      display: flex;
+      position: absolute;
+      top: calc(var(--navbar-height-mobile) + var(--spacing-sm));
+      left: 1px;
+      right: 1px;
+      flex-direction: column;
+      background-color: var(--color-header);
+      border: 1px solid var(--color-text);
+      border-radius: var(--radius-sm);
+      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
+      clip-path: inset(0 0 100% 0 round var(--radius-sm));
+      visibility: hidden;
+      transition: clip-path 0.25s ease-in, visibility 0s linear 0.25s;
+    }
+
+    .navbar__toggle-input:checked ~ .navbar__links {
+      clip-path: inset(0 0 0 0 round var(--radius-sm));
+      visibility: visible;
+      transition: clip-path 0.35s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s;
+    }
+
+    .navbar__toggle-input:checked ~ .navbar__actions .navbar__toggle span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .navbar__toggle-input:checked ~ .navbar__actions .navbar__toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .navbar__toggle-input:checked ~ .navbar__actions .navbar__toggle span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .navbar__link {
+      display: block;
+      padding: var(--spacing-sm) var(--spacing-md);
+      font-weight: 500;
+      color: var(--color-text);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .navbar__link:last-child {
+      border-bottom: none;
+    }
+
+    .navbar__link[aria-current="page"] {
+      color: var(--color-olive);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-sm);
+      padding: var(--spacing-md) var(--spacing-lg);
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      font-weight: 600;
+      line-height: 1;
+      border: 1.5px solid transparent;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn--primary {
+      background-color: var(--color-text);
+      color: var(--color-bg);
+    }
+
+    .btn--primary:hover {
+      background-color: #444440;
+    }
+
+    .btn__arrow {
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover .btn__arrow {
+      transform: translateX(3px);
+    }
+
+    .home-logo-banner {
+      padding-top: 1rem;
+      width: 100%;
+    }
+
+    .home-logo-banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .home-wrap {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--margen-A-mobile);
+    }
+
+    .home-hero {
+      padding: 0 0 var(--spacing-xxxl);
+    }
+
+    .home-hero__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .home-hero__title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: var(--fs-h1);
+      line-height: 1.02;
+      color: var(--color-text);
+      margin: 0;
+    }
+
+    .home-hero__subtitle {
+      font-size: var(--fs-body);
+      color: var(--color-text-soft);
+      margin: 0;
+      text-align: left;
+    }
+
+    .home-hero__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0;
+    }
+
+    .home-hero__col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-lg);
+    }
+
+    .home-hero__illus {
+      flex-shrink: 0;
+      width: 160px;
+      height: auto;
+      transform: scaleX(-1);
+    }
+
+    @keyframes anim-fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes anim-up {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes anim-up-flip {
+      from { opacity: 0; transform: translateY(16px) scaleX(-1); }
+      to { opacity: 1; transform: scaleX(-1); }
+    }
+
+    .anim-fade {
+      animation: anim-fade 0.6s ease-out both;
+    }
+
+    .anim-up {
+      animation: anim-up 0.5s ease-out both;
+    }
+
+    .anim-up-flip {
+      animation: anim-up-flip 0.5s ease-out both;
+    }
+
+    .anim-d1 { animation-delay: 0.15s; }
+    .anim-d2 { animation-delay: 0.3s; }
+    .anim-d3 { animation-delay: 0.45s; }
+
+    @media (min-width: 1024px) {
+      header {
+        margin: var(--spacing-sm) var(--spacing-sm) 0;
+      }
+
+      .navbar__logo img {
+        height: 34px;
+      }
+
+      .navbar__inner {
+        height: var(--navbar-height);
+        padding: 0 calc(var(--margen-A-desktop) - var(--spacing-sm));
+        justify-content: center;
+        gap: var(--spacing-xl);
+      }
+
+      .navbar__toggle,
+      .navbar__actions {
+        display: none;
+      }
+
+      .navbar__links {
+        display: contents;
+        position: static;
+        padding: 0;
+        background: none;
+        border: none;
+        box-shadow: none;
+        clip-path: none;
+        filter: none;
+        visibility: visible;
+        transition: none;
+      }
+
+      .navbar__links li:nth-child(-n+3) {
+        order: -1;
+      }
+
+      .navbar__link {
+        padding: var(--spacing-xs) 0;
+        border: none;
+        border-bottom: 2px solid transparent;
+      }
+
+      .navbar__link:hover,
+      .navbar__link[aria-current="page"] {
+        color: var(--color-olive);
+        background: none;
+        border-bottom-color: var(--color-olive);
+      }
+
+      .home-wrap {
+        padding: 0 var(--margen-A-desktop);
+      }
+
+      .home-hero__illus {
+        width: clamp(180px, 14vw, 260px);
+      }
+
+      .home-hero__title {
+        font-size: clamp(44px, 4.2vw, 68px);
+      }
+
+      .home-hero__col {
+        flex: 0 1 auto;
+      }
+
+      .home-hero__bottom {
+        justify-content: flex-start;
+        gap: var(--spacing-xxl);
+      }
+
+      .home-top {
+        display: grid;
+        grid-template-columns: 1fr minmax(0, 44%);
+        align-items: center;
+        gap: var(--spacing-xxl);
+        max-width: var(--container-max);
+        margin: 0 auto;
+        padding: 0 var(--margen-A-desktop);
+        min-height: calc(100vh - var(--navbar-height));
+      }
+
+      .home-top .home-logo-banner {
+        padding-top: 0;
+        order: 2;
+      }
+
+      .home-top .home-hero {
+        order: 1;
+        padding: 0;
+      }
+
+      .home-top .home-hero .home-wrap {
+        padding: 0;
+        max-width: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .anim-fade,
+      .anim-up,
+      .anim-up-flip {
+        animation: none;
+      }
+
+      .navbar,
+      .navbar__links,
+      .navbar__toggle span,
+      .btn,
+      .btn__arrow {
+        transition: none;
+      }
+    }
+  </style>
+  <script>
+    (function () {
+      var ready = false;
+      window.goduaDeferredStylesReady = function () {
+        if (ready) return;
+        ready = true;
+        document.documentElement.classList.add('deferred-css-ready');
+        document.dispatchEvent(new Event('godua:deferred-css-ready'));
+      };
+    }());
+  </script>
+  <link rel="stylesheet" href="css/pages/inicio-deferred.css?v=16" media="print" onload="this.media='all';window.goduaDeferredStylesReady&&window.goduaDeferredStylesReady()">
+  <noscript><link rel="stylesheet" href="css/pages/inicio-deferred.css?v=16"></noscript>
 </head>
 <body class="home">
 
@@ -74,7 +548,16 @@
          0 · LOGO PRINCIPAL (banner full-width)
          ============================================ -->
     <div class="home-logo-banner anim-fade">
-      <img src="assets/logos/logo-solo-imagen.webp" alt="GODUA — reptiles brindando" width="2941" height="2069" decoding="async" fetchpriority="high">
+      <img src="assets/logos/logo-solo-imagen.webp"
+           srcset="assets/logos/logo-solo-imagen-480.webp 480w,
+                   assets/logos/logo-solo-imagen-800.webp 800w,
+                   assets/logos/logo-solo-imagen-1200.webp 1200w,
+                   assets/logos/logo-solo-imagen.webp 1400w"
+           sizes="(min-width: 1024px) 44vw, 100vw"
+           alt="GODUA — reptiles brindando"
+           width="1400"
+           height="985"
+           decoding="async">
     </div>
 
     <!-- ============================================
@@ -93,8 +576,12 @@
           </div>
           <img class="home-hero__illus anim-up-flip anim-d3"
                src="assets/ilustraciones/reptil-hero.webp"
+               srcset="assets/ilustraciones/reptil-hero-240.webp 240w,
+                       assets/ilustraciones/reptil-hero-480.webp 480w,
+                       assets/ilustraciones/reptil-hero.webp 720w"
+               sizes="(min-width: 1024px) 260px, 160px"
                alt="Reptil en patineta, la mascota de GODUA"
-               width="5616" height="5726" decoding="async">
+               width="720" height="734" decoding="async">
         </div>
       </div>
     </section>
@@ -109,10 +596,10 @@
       <div class="home-wrap">
         <!-- Header en 2 columnas: ilustración (izq) + título (der) -->
         <div class="home-band__head" data-reveal>
-          <img loading="lazy" decoding="async" class="home-band__illus"
+          <img loading="eager" decoding="async" fetchpriority="high" class="home-band__illus"
                src="assets/ilustraciones/que-ofrecemos.webp"
                alt="Reptil con túnica, la mascota de GODUA"
-               width="1353" height="1968">
+               width="520" height="757">
           <div class="home-band__heading">
             <p class="home-band__kicker">QUÉ OFRECEMOS</p>
             <h2 id="oferta-title" class="home-band__title">Elegí tu formato</h2>
@@ -289,7 +776,7 @@
       <div class="footer__top">
         <div class="footer__brand">
           <a class="footer__logo" href="index.html" aria-label="GODUA — Inicio">
-            <img src="assets/logos/godua-completo-blanco.png" alt="GODUA Cerveza">
+            <img loading="lazy" decoding="async" src="assets/logos/godua-completo-blanco.webp" alt="GODUA Cerveza" width="800" height="800">
           </a>
         </div>
 
@@ -319,7 +806,7 @@
     </div>
   </footer>
 
-  <script src="js/js-utils.js?v=14" defer></script>
+  <script src="js/js-utils.js?v=15" defer></script>
 
   <!-- Carrusel de reseñas: activa el fade lateral SOLO mientras hay scroll -->
   <script>
@@ -345,7 +832,7 @@
      href="https://wa.me/5491168482209?text=Hola%20GODUA%2C%20quiero%20consultar"
      target="_blank" rel="noopener noreferrer"
      aria-label="Escribinos por WhatsApp">
-    <img src="assets/iconos/whatsapp.png" alt="WhatsApp" width="512" height="512" decoding="async">
+    <img loading="lazy" src="assets/iconos/whatsapp.png" alt="WhatsApp" width="512" height="512" decoding="async">
   </a>
 
 </body>
