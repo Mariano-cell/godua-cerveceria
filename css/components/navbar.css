@@ -187,7 +187,10 @@ header {
 
   .navbar__inner {
     height: var(--navbar-height);
-    padding: 0 var(--spacing-sm);
+    /* Mismo margen lateral que las secciones (--margen-A-desktop),
+       menos el margin del header (la barra ya está corrida 8px):
+       así logo y links quedan alineados con el contenido. */
+    padding: 0 calc(var(--margen-A-desktop) - var(--spacing-sm));
   }
 
   .navbar__toggle {
@@ -200,23 +203,32 @@ header {
     display: none;
   }
 
+  /* Layout: 3 links + LOGO + 3 links, todo centrado.
+     El <ul> se disuelve (display: contents): cada <li> pasa a ser
+     item directo de .navbar__inner, y con order mandamos los 3
+     primeros links ANTES del logo. HTML intacto (mobile no cambia). */
+  .navbar__inner {
+    justify-content: center;
+    gap: var(--spacing-xl);      /* aire uniforme entre links y logo */
+  }
+
   .navbar__links {
-    display: flex;
+    display: contents;
+    /* Neutralizamos el panel mobile (por si algun estilo se filtra) */
     position: static;
     padding: 0;
-    flex: 1;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;   /* links lo mas a la derecha posible */
-    gap: var(--spacing-xl);
     background: none;
     border: none;
     box-shadow: none;
-    /* En desktop el menú está siempre visible: sin animación */
     clip-path: none;
     filter: none;
     visibility: visible;
     transition: none;
+  }
+
+  /* Los 3 primeros links viajan a la izquierda del logo */
+  .navbar__links li:nth-child(-n+3) {
+    order: -1;
   }
 
   .navbar__link {
