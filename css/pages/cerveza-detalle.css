@@ -40,7 +40,7 @@
    la ilustración grande entra acá cuando exista. */
 .det-hero__universe {
   position: relative;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-sm);
   overflow: hidden;
   aspect-ratio: 2421 / 1473;   /* proporción de las portadas */
 }
@@ -86,7 +86,7 @@
   gap: var(--spacing-md);
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   padding: var(--spacing-md) var(--spacing-lg);
   margin: 0 0 var(--spacing-xs);
   text-align: center;

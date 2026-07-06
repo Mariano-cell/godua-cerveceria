@@ -73,7 +73,7 @@
 .merch-card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   overflow: hidden;
 }
 /* Foto protagonista (placeholder .illus-box hasta tener fotos) */

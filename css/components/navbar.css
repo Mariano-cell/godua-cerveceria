@@ -12,28 +12,35 @@
    header mide lo mismo que el navbar, ahí no tenía dónde pegarse. */
 header {
   position: sticky;
-  top: 0;
+  /* Mismo aire que el dropdown respecto del header (--spacing-sm):
+     top = distancia al pegarse; margin-top = distancia en reposo */
+  top: var(--spacing-sm);
   z-index: 100;
+  /* El padding lateral del header ahora es margin: la barra queda
+     "flotando", despegada de los bordes de la pantalla */
+  margin: var(--spacing-sm) var(--spacing-sm) 0;
 }
 
 .navbar {
   position: relative;   /* referencia para el dropdown absoluto */
   background-color: var(--color-header);
-  border-top: 1px solid var(--color-text);
-  border-bottom: 1px solid var(--color-text);
+  border: 1px solid var(--color-text);
+  border-radius: var(--radius-sm);   /* 4px */
   /* Smart header: se esconde al scrollear hacia abajo y
      reaparece al scrollear hacia arriba (clase puesta por JS) */
   transition: transform 0.3s ease;
 }
 .navbar--hidden {
-  transform: translateY(-100%);
+  /* -100% no alcanza: hay que sumar el gap superior para que
+     no quede asomando el borde inferior */
+  transform: translateY(calc(-100% - var(--spacing-sm)));
 }
 
 /* Fila interna: centrada y con ancho máximo del sitio */
 .navbar__inner {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--margen-A-mobile);
+  padding: 0 var(--spacing-sm);   /* aire interno; el resto lo da el margin del header */
   height: var(--navbar-height-mobile);
   display: flex;
   align-items: center;
@@ -114,13 +121,12 @@ header {
   position: absolute;
   /* Panel flotante: despegado del header y de los bordes laterales */
   top: calc(var(--navbar-height-mobile) + var(--spacing-sm));
-  left: var(--spacing-sm);
-  right: var(--spacing-sm);
+  left: 1px;
+  right: 1px;
   flex-direction: column;
   background-color: var(--color-header);
-  padding: var(--spacing-sm) 0;
   border: 1px solid var(--color-text);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   /* drop-shadow y no box-shadow: la sombra sigue a la forma recortada
      por clip-path (box-shadow quedaría cortada por el recorte) */
   filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
@@ -129,14 +135,14 @@ header {
      animación destapa hasta el alto REAL del menú (sin tope estimado).
      Mucho más fluido que animar max-height: el recorte no recalcula
      layout en cada frame y el navegador puede acelerarlo por GPU. */
-  clip-path: inset(0 0 100% 0 round var(--radius-md));
+  clip-path: inset(0 0 100% 0 round var(--radius-sm));
   visibility: hidden;              /* no clickeable ni legible por lectores */
   /* visibility se esconde AL FINAL (delay = duración) para que se vea la salida */
   transition: clip-path 0.25s ease-in, visibility 0s linear 0.25s;
 }
 /* Cuando el checkbox está marcado, baja la persiana */
 .navbar__toggle-input:checked ~ .navbar__links {
-  clip-path: inset(0 0 0 0 round var(--radius-md));
+  clip-path: inset(0 0 0 0 round var(--radius-sm));
   visibility: visible;
   /* ease-out marcado: arranca rápido y se asienta suave */
   transition: clip-path 0.35s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s;
@@ -175,9 +181,13 @@ header {
      hamburguesa oculta, menú siempre visible.
    ============================================ */
 @media (min-width: 1024px) {
+  header {
+    margin: var(--spacing-sm) var(--spacing-sm) 0;
+  }
+
   .navbar__inner {
     height: var(--navbar-height);
-    padding: 0 var(--margen-A-desktop);
+    padding: 0 var(--spacing-sm);
   }
 
   .navbar__toggle {

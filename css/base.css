@@ -27,7 +27,7 @@
   justify-content: center;
   text-align: center;
   border: 1.5px dashed #b8b5ac;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   color: var(--color-text-muted);
   font-size: var(--fs-small);
   line-height: 1.3;

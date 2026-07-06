@@ -96,5 +96,5 @@
 .btn__wa-icon {
   width: 20px;
   height: 20px;
-  border-radius: 3px;
+  border-radius: var(--radius-sm);
 }

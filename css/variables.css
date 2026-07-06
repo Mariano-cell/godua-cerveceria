@@ -57,7 +57,7 @@
   /* --- Layout --- */
   /* Margen lateral estándar del sitio en mobile (padding lateral del header).
      Reutilizable en cualquier página y en cualquier chat del proyecto. */
-  --margen-A-mobile: 20px;
+  --margen-A-mobile: 14px;
 
   --container-max: 1100px;
   --navbar-height: 80px;

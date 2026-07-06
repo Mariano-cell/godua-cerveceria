@@ -156,7 +156,7 @@
 .chop-calc__card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   padding: var(--spacing-md);
   text-align: center;
 }
@@ -189,7 +189,7 @@
 .chop-prices__card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   padding: var(--spacing-lg);
 }
 .chop-prices__eyebrow {
@@ -255,7 +255,7 @@
 .chop-faq__item {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   overflow: hidden;
 }
 .chop-faq__question {

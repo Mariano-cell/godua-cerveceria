@@ -8,7 +8,6 @@
    Estructura:
      .footer__inner  (columna)
        .footer__top       → brand (logo + tagline) · nav · contacto
-       .footer__wordmark  → "GODUA" gigante, decorativo
        .footer__legal     → línea legal
    ============================================ */
 
@@ -16,7 +15,6 @@
   background-color: var(--color-text);
   color: #cfcdc6;
   padding: var(--spacing-xxl) var(--margen-A-mobile) var(--spacing-lg);
-  overflow: hidden; /* el wordmark gigante no debe generar scroll lateral */
 }
 
 .footer__inner {
@@ -31,9 +29,16 @@
 /* Mobile: apilados en columna. Desktop: tres columnas. */
 .footer__top {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: var(--spacing-xl);
 }
+/* Orden en mobile: links (izq) · logo (der) · contacto (abajo) */
+.footer__nav   { order: 1; }
+.footer__brand { order: 2; max-width: 45%; }
+.footer__contact { order: 3; width: 100%; }
 
 /* ---------- Brand: logo + tagline ---------- */
 .footer__brand {
@@ -46,7 +51,9 @@
   width: fit-content;
 }
 .footer__logo img {
-  height: 120px;
+  /* clamp: nunca más chico que 80px ni más grande que 150px,
+     escala con el viewport en el medio */
+  height: clamp(150px, 50vw, 200px);
   width: auto;
 }
 .footer__tagline {
@@ -91,8 +98,9 @@
 }
 .footer__contact-links {
   display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
+  flex-direction: row;    /* en fila, no apilados */
+  flex-wrap: wrap;        /* si no entran, bajan de línea */
+  gap: var(--spacing-sm) var(--spacing-lg);   /* fila | columna */
 }
 .footer__contact-links a {
   color: #cfcdc6;
@@ -102,22 +110,6 @@
 }
 .footer__contact-links a:hover {
   color: #ffffff;
-}
-
-/* ---------- Wordmark gigante (decorativo) ---------- */
-/* Texto enorme y muy tenue que cierra la página con marca. */
-.footer__wordmark {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(64px, 16vw, 240px);
-  line-height: 0.85;
-  letter-spacing: 0.01em;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.07);
-  user-select: none;
-  pointer-events: none;
-  white-space: nowrap;
-  margin-top: var(--spacing-md);
 }
 
 /* ---------- Línea legal ---------- */
@@ -131,7 +123,7 @@
 /* ============================================
    Desktop (>= 1024px)
    Tres columnas: brand (izq) · nav (centro) · contacto (der)
-   + wordmark gigante + legal.
+   + legal.
    ============================================ */
 @media (min-width: 1024px) {
   .footer {
@@ -145,7 +137,11 @@
     gap: var(--spacing-xxxl);
   }
 
-  .footer__logo img { height: 110px; }
+  .footer__logo img { height: clamp(110px, 13vw, 160px); }
+
+  /* Desktop: nav · contacto · brand (logo a la derecha) */
+  .footer__contact { order: 2; width: auto; }
+  .footer__brand   { order: 3; max-width: none; }
 
   /* Nav en dos columnas para que no quede una tira larga */
   .footer__links {
